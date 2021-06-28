@@ -34,7 +34,7 @@ export {
 };
 
 // components
-export default (app: App) => {
+export default (app: App<Element>) => {
   app.component('AForbidden', AForbidden);
   app.component('ANotPage', ANotPage);
   app.component(AIcon.name, AIcon);

@@ -20,7 +20,7 @@ import AUploadName from '@fe6/water-pro/components/upload-name';
 import AUploadImage from '@fe6/water-pro/components/upload-image';
 import ATablePro from '@fe6/water-pro/components/table-pro';
 
-export default (app: App) => {
+export default (app: App<Element>) => {
   app.use(waterPro);
   app.component(AContainerScroll.name, AContainerScroll);
   app.component(AContainerCollapse.name, AContainerCollapse);
