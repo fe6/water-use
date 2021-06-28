@@ -20,17 +20,19 @@ const plugins: Plugin<any>[] = isDev ? [createLogger()] : [];
 
 const storeObject = ref<any>(null);
 
-const store = (params: StoreOptions<Recordable>) => createStore(
-  merge({
-    modules: {
-      app,
-      external,
+const store = (params: StoreOptions<Recordable>) => {
+  return createStore(
+    merge({
+      modules: {
+        app,
+        external,
+      },
+      strict: isDev,
+      plugins,
     },
-    strict: isDev,
-    plugins,
-  },
-  params,
-  ));
+    params,
+    ));
+};
 
 export function setupStore(app: App<Element>, params: StoreOptions<Recordable>) {
   storeObject.value = store(params);

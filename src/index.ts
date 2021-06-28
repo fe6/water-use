@@ -17,10 +17,14 @@ import waterStores from './stores';
 // axios
 import createAxios from './axios';
 
+import { AppRouteRecordRaw as AppRouteRecordRaw2 } from './routers/types';
+
 // router
 export * from './routers/types';
 export { LAYOUT_DEF, LAYOUT_BOX } from './routers/constant';
 export { PAGE_NOT_FOUND_ROUTE } from './routers/configs/routers';
+export declare interface AppRouteRecordRaw extends AppRouteRecordRaw2 {}
+export declare interface AppRouteModule extends AppRouteRecordRaw {}
 
 // vuex
 export {
