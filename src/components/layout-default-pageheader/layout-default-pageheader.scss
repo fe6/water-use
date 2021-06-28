@@ -1,0 +1,21 @@
+.w-layout-default-pageheader {
+  background: #fff;
+
+  &-breadcrumb {
+    padding: 12px 24px 16px;
+    font-family: "PingFangSC-Regular";
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  &-title {
+    padding: 0 24px 16px;
+    font-family: "PingFangSC-Medium";
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 28px;
+    font-weight: 500;
+  }
+}

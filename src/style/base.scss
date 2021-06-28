@@ -1,0 +1,12 @@
+.root {
+  font-family: $family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  overflow: hidden;
+
+  .ant-spin-nested-loading,
+  .ant-spin-container {
+    height: 100%;
+  }
+}
