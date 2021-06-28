@@ -1,4 +1,4 @@
-import { App } from 'vue';
+import type { App } from 'vue';
 
 // NOTE ant-design-vue
 import waterPro from '@fe6/water-pro';
