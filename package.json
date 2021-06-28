@@ -6,7 +6,8 @@
   "author": "iq9891 <649076408@qq.com>",
   "license": "MIT",
   "files": [
-    "src"
+    "src",
+    "scripts"
   ],
   "scripts": {
     "lint:js": "eslint './src/**/*.{js,ts,tsx,vue,json}'",
