@@ -19,9 +19,11 @@
     "lib": ["esnext", "dom"],
     "types": ["node"],
     "paths": {
-      "@@*": ["src/*"]
+      "@@*": ["src/*"],
+      "@fe6/water-use": ["src/*"],
+      "@fe6/water-use/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["demo/**/*.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["node_modules", "**/*.js"]
 }
