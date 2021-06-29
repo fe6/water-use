@@ -37,6 +37,7 @@
     </a-container-scroll>
   </a-layout-sider>
   <a-layout-sider
+    v-if="navTitle"
     v-model:collapsed="collapseStatus"
     :trigger="null"
     collapsible
