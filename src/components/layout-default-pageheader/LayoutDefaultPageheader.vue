@@ -6,7 +6,8 @@
       </template>
     </a-breadcrumb>
     <h2 v-if="title" class="w-layout-default-pageheader-title">
-      {{ title }}
+      <ArrowLeftOutlined />
+      <span class="w-layout-default-pageheader-title-inner">{{ title }}</span>
     </h2>
   </div>
 </template>

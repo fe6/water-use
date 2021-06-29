@@ -13,9 +13,22 @@
   &-title {
     padding: 0 24px 16px;
     font-family: "PingFangSC-Medium";
-    font-size: 20px;
     color: rgba(0, 0, 0, 0.85);
     line-height: 28px;
+    font-size: 14px;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    &-inner {
+      font-size: 20px;
+      padding-left: 16px;
+    }
+
+    & .anticon-arrow-left {
+      & svg {
+        display: block;
+      }
+    }
   }
 }

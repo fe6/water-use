@@ -22,6 +22,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.0.1",
     "@fe6/norm": "^3.2.0",
     "@fe6/shared": "^0.9.1",
     "@fe6/water-pro": "^3.0.29",
