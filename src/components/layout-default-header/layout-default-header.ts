@@ -1,9 +1,10 @@
 import { isUndefined } from 'lodash-es';
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
+import { useStore } from 'vuex';
 
 import { propTypes } from '../../utils/prop-types';
 import ALayoutDefaultAuth from '../layout-default-auth/LayoutDefaultAuth.vue';
@@ -33,7 +34,11 @@ export default defineComponent({
       emit('on-collapsed', props.collapsed);
     };
 
+    const myStores = useStore();
+    const navTitle = computed(() => myStores.state.external.navTitle);
+
     return {
+      navTitle,
       changeCollapsed,
       visible,
       hideInfo,

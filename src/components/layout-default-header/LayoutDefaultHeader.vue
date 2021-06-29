@@ -4,13 +4,15 @@
     prefix-cls="ant-layout-header"
     class="w-layout-default-header"
   >
-    <menu-unfold-outlined
-      v-if="collapsed"
-      class="w-layout-default-header-trigger"
-      @click="changeCollapsed"
-    />
-    <menu-fold-outlined v-else class="w-layout-default-header-trigger" @click="changeCollapsed" />
-    <div class="w-layout-default-header-inner">
+    <template v-if="navTitle">
+      <menu-unfold-outlined
+        v-if="collapsed"
+        class="w-layout-default-header-trigger"
+        @click="changeCollapsed"
+      />
+      <menu-fold-outlined v-else class="w-layout-default-header-trigger" @click="changeCollapsed" />
+    </template>
+    <div class="w-layout-default-header-inner" :class="navTitle ? '' : 'w-layout-default-header-inner-only'">
       <div class="w-layout-default-header-label">
         <a-dropdown
           v-model:visible="visible"
