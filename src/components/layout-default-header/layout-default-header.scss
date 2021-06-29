@@ -20,6 +20,10 @@
     display: flex;
     width: 100%;
     border-bottom: 1px solid $border;
+
+    &-only {
+      padding-left: 24px;
+    }
   }
 
   &-trigger {
