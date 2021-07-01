@@ -33,6 +33,7 @@ export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
       // Inject data into ejs template
       injectData: {
         title: 'water pro',
+        pwd: process.cwd(),
       },
       // Embed the generated app.config.js file
       tags: isBuild
