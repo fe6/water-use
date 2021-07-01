@@ -68,7 +68,7 @@ export default defineComponent({
     onMounted(async() => {
       if (isDevMode()) {
         const pwd = (window as any).pwd;
-        const json = (await (await import(`${pwd}/src/mock/external`)).default) as any;
+        const json = (await (await import(/* @vite-ignore */`${pwd}/src/mock/external`)).default) as any;
         myStores.dispatch('external/setAllExternals', json);
       }
     });
