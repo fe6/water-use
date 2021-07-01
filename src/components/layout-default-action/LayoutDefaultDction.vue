@@ -5,7 +5,10 @@
         <QuestionCircleOutlined />
       </a>
     </a-tooltip>
-    <a-dropdown :trigger="['click']">
+    <a-dropdown
+      :trigger="['click']"
+      @visibleChange="dropdownVisibleChange"
+    >
       <div class="w-layout-default-action-box" @click.prevent>
         <a-avatar :size="24" src="">
           <template #icon>
@@ -13,6 +16,7 @@
           </template>
         </a-avatar>
         <span class="w-layout-default-action-name">用户名</span>
+        <a-basic-arrow class="w-layout-default-action-arrow" :bottom="!downDownStatus" :top="downDownStatus" />
       </div>
       <template #overlay>
         <a-menu

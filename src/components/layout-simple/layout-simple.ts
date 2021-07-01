@@ -4,19 +4,15 @@ import {
 import { defineComponent, ref, computed } from 'vue';
 import { useStore } from 'vuex';
 
-import WLayoutDefaultHeader from '../layout-default-header/LayoutDefaultHeader.vue';
-import WLayoutDefaultPageheader from '../layout-default-pageheader/LayoutDefaultPageheader.vue';
-import WLayoutDefaultMenu from '../layout-default-menu/LayoutDefaultMenu.vue';
+import WLayoutSimpleHeader from '../layout-simple-header/LayoutSimpleHeader.vue';
 import WLayoutFooter from '../layout-footer/LayoutFooter.vue';
 
 export default defineComponent({
-  name: 'ALayoutDefault',
+  name: 'ALayoutSimple',
   components: {
     UserOutlined,
-    WLayoutDefaultHeader,
-    WLayoutDefaultPageheader,
-    WLayoutDefaultMenu,
     WLayoutFooter,
+    WLayoutSimpleHeader,
   },
   setup() {
     const appStore = useStore();

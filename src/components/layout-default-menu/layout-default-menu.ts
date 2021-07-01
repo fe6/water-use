@@ -15,6 +15,7 @@ import { getAvtiveKey } from '../../utils/menus';
 import { getEnvConfig } from '../../env';
 
 import AIcon from '../icon';
+import { hasOwn } from '@fe6/shared';
 
 export default defineComponent({
   components: {
@@ -31,6 +32,7 @@ export default defineComponent({
     const { VITE_MENU_ACTIVE } = getEnvConfig();
     const { currentRoute } = useRouter();
     const myStores = useStore();
+    // console.log(currentRoute.value.meta, 'currentRoute');
 
     const menus = computed(() => {
       return myStores.state.external.menus;
@@ -72,8 +74,12 @@ export default defineComponent({
       emit('on-collapsed', collapseStatus);
     };
 
+    const { meta } = currentRoute.value;
+
+    const menuCheckKey = hasOwn(meta, 'menuActive') ? String(meta.menuActive) : VITE_MENU_ACTIVE;
+
     return {
-      menuCheckKey: ref<string[]>([VITE_MENU_ACTIVE]),
+      menuCheckKey: ref<string[]>([menuCheckKey]),
       collapseStatus,
       collapseChange,
 

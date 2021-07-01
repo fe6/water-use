@@ -55,6 +55,13 @@ export const siteHref = (url: string) => {
 };
 
 /**
+ * @description: window.open 封装
+ */
+export const siteOpen = (url: string) => {
+  window.open(url);
+};
+
+/**
  * @description: reload 封装
  */
 export const siteReload = () => {

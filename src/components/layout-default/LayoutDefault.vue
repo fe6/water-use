@@ -11,7 +11,7 @@
         <a-affix :style="{ zIndex: 1 }">
           <w-layout-default-header :collapsed="collapsed" @on-collapsed="changeCollapsed" />
         </a-affix>
-        <a-container-scroll class="w-layout-default-main">
+        <div class="w-layout-default-main">
           <w-layout-default-pageheader />
           <router-view v-slot="{ Component }">
             <transition
@@ -22,11 +22,8 @@
               <component :is="Component" />
             </transition>
           </router-view>
-          <a-layout-footer class="w-layout-default-footer">
-            <div>活动易 · 文旅行业解决专家</div>
-            <div>©2012-2021 Evente.cn</div>
-          </a-layout-footer>
-        </a-container-scroll>
+          <w-layout-footer />
+        </div>
       </a-layout>
     </a-layout>
   </a-spin>
