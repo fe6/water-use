@@ -41,6 +41,11 @@ const actions = {
       commit('setAllExternals', { externalResult });
     }
   },
+  setAllExternals: async({ commit }: any, externalResult: MenuModal[]) => {
+    if (!externalResult.length) {
+      commit('setAllExternals', { externalResult });
+    }
+  },
 };
 
 // mutations

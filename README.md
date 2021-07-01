@@ -14,7 +14,9 @@ $ yarn add @fe6/water-use
 - 组件
 
   - [X] ***a-layout-default*** 带头部带导航带退出的布局
-  - [X] ***a-layout-default-content*** 统一内容样式的封装，自带滚动条
+  - [X] ***a-layout-default-content*** 统一内容样式的封装
+  - [X] ***a-layout-simple*** 简单布局
+  - [X] ***a-layout-simple-content*** 统一内容样式的封装，自带滚动条
   - [X] ***a-layout-box*** 只有一个 router-view 的封装
   - [X] ***a-forbidden*** 无权限组件
   - [X] ***a-icon*** [字节 icon](https://iconpark.oceanengine.com/official) 的封装
@@ -24,6 +26,7 @@ $ yarn add @fe6/water-use
 
   - [X] 全局路由配置，路由守卫，以及添加路由的方法
   - [X] LAYOUT_DEF 默认布局的导入
+  - [X] LAYOUT_SIMPLE  简单布局的导入
   - [X] LAYOUT_BOX  box 布局的导入
   - [X] PAGE_NOT_FOUND_ROUTE 路由的导入
 
@@ -35,7 +38,6 @@ $ yarn add @fe6/water-use
 - axios
 
   - [X] 暴露的 ***createAxios*** 方法统一 ajax 配置
-
 
 - hooks
 

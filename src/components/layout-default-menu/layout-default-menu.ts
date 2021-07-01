@@ -3,7 +3,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
-import { defineComponent, computed, ref, onBeforeMount, watchEffect, watch } from 'vue';
+import { defineComponent, computed, ref, onBeforeMount, onMounted, watchEffect, watch } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
@@ -12,7 +12,7 @@ import {
 } from '../../api-mods/external';
 import { propTypes } from '../../utils/prop-types';
 import { getAvtiveKey } from '../../utils/menus';
-import { getEnvConfig } from '../../env';
+import { getEnvConfig, isDevMode } from '../../env';
 
 import AIcon from '../icon';
 import { hasOwn } from '@fe6/shared';
@@ -63,6 +63,14 @@ export default defineComponent({
     // NOTE 获取权限接口数据
     onBeforeMount(async() => {
       await myStores.dispatch('external/getAllExternals');
+    });
+
+    onMounted(async() => {
+      if (isDevMode()) {
+        const pwd = (window as any).pwd;
+        const json = (await (await import(`${pwd}/src/mock/external`)).default) as any;
+        myStores.dispatch('external/setAllExternals', json);
+      }
     });
 
     const collapseStatus = ref(false);
