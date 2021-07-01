@@ -29,7 +29,7 @@
   &-inner,
   &-dark,
   &-light {
-    height: calc(100vh - 64px);
+    height: calc(100vh - $navHeight);
   }
 
   &-light {
@@ -86,8 +86,8 @@
     width: 100%;
 
     &-name {
-      height: 64px;
-      line-height: 64px;
+      height: $navHeight;
+      line-height: $navHeight;
       font-family: "PingFangSC-Medium";
       font-size: 16px;
       color: rgba(0, 0, 0, 0.85);

@@ -6,8 +6,8 @@
   box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
 
   &-name {
-    height: 64px;
-    line-height: 64px;
+    height: $navHeight;
+    line-height: $navHeight;
     font-family: "PingFangSC-Medium";
     font-size: 16px;
     color: rgba(0, 0, 0, 0.85);
@@ -28,7 +28,7 @@
 
   &-trigger {
     font-size: 18px;
-    line-height: 64px;
+    line-height: $navHeight;
     display: block;
     padding: 0 24px;
     cursor: pointer;
@@ -55,8 +55,8 @@
   }
 
   &-action {
-    height: 64px;
-    line-height: 64px;
+    height: $navHeight;
+    line-height: $navHeight;
     font-family: "PingFangSC-Medium";
     font-size: 0;
     text-align: center;

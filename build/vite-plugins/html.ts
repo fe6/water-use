@@ -22,7 +22,7 @@ export function configHtmlPlugin(env: ViteEnv, isBuild: boolean) {
     return {
       tag: 'script',
       attrs: {
-        src: 'https://sf1-hscdn-tos.pstatp.com/obj/iconpark/icons_1363_9.5d49d87063523e8b7765a60e9a353654.js',
+        src: 'https://sf1-hscdn-tos.pstatp.com/obj/iconpark/icons_1363_10.50802280868bca94654c32fba5c09e93.js',
       },
     };
   };

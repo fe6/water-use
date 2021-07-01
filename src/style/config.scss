@@ -5,19 +5,9 @@ $family: DINAlternate-Bold, -apple-system, BlinkMacSystemFont, Helvetica Neue,
   WenQuanYi Micro Hei, sans-serif !important;
 
 // 页面最小宽度
-$minWidth: 1190px;
-// 页面最大宽度
-$maxWidth: 1590px;
-// 页面主体的宽度
-$bodyWidth: 100%;
+$bodyWidth: 1100px;
 // 顶部导航栏 nav 的高度
 $navHeight: 64px;
-// 全局缝隙
-$space: 12px;
-// 左边侧边栏的宽度
-$siderWidth: 150px;
-
-$menuHeight: 60px;
 
 $main: #1890ff;
 $main-hover: #40a9ff;
@@ -25,17 +15,11 @@ $main-hover: #40a9ff;
 $danger: #f00;
 $danger-hover: #ffa39e;
 
-$bg: #f4f4f4;
-// 底部色块
-$bg-footer: #f7f7f7;
-
 $black: #333;
 
 $gray: #999;
 // 禁用颜色
 $disable: #ccc;
-// table header 背景色
-$table-header: #f4f4f4;
 // 边框颜色
 $border: #f0f0f8;
 // 文字颜色

@@ -3,7 +3,7 @@ import {
   LogoutOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons-vue';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 import { siteHref } from '../../hooks/use-page';
 
@@ -30,9 +30,16 @@ export default defineComponent({
       }
     };
 
+    const downDownStatus = ref(false);
+    const dropdownVisibleChange = (status: boolean) => {
+      downDownStatus.value = status;
+    };
+
     return {
       logoutFn,
       handleMenuClick,
+      dropdownVisibleChange,
+      downDownStatus,
     };
   }
 });

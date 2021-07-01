@@ -4,13 +4,7 @@
 
   &-main {
     height: calc(100vh - 64px);
-  }
-
-  &-content {
-    margin: 24px 16px 0;
-    padding: 24px;
-    background: #fff;
-    min-height: calc(100vh - 176px);
+    overflow: auto;
   }
 
   & .ant-layout {

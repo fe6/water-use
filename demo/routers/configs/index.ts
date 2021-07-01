@@ -1,5 +1,3 @@
-// import type { AppRouteRecordRaw, AppRouteModule } from '@fe6/water-use/routers/types';
-
 // NOTE water/use
 import { PAGE_NOT_FOUND_ROUTE } from '@fe6/water-use/routers/configs/routers';
 

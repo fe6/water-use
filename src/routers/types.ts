@@ -11,6 +11,8 @@ export type Component<T extends any = any> =
   | (() => Promise<T>);
 
 export interface RouteMeta {
+  // 一级导航自定义匹配
+  menuActive?: string
   // title
   title?: string
   titleTips?: string | string[]
