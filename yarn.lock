@@ -573,10 +573,10 @@
   resolved "https://registry.nlark.com/@fe6/shared/download/@fe6/shared-0.9.1.tgz#30ff7d7d4cff60cda18bc28fa3da8eb7c58b01c4"
   integrity sha1-MP99fUz/YM2hi8KPo9qOt8WLAcQ=
 
-"@fe6/water-pro@^3.0.29":
-  version "3.0.29"
-  resolved "https://registry.nlark.com/@fe6/water-pro/download/@fe6/water-pro-3.0.29.tgz#634a30dab1f632f9f06427c30a7d0450b06dcf07"
-  integrity sha1-Y0ow2rH2MvnwZCfDCn0EULBtzwc=
+"@fe6/water-pro@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.nlark.com/@fe6/water-pro/download/@fe6/water-pro-3.5.1.tgz?cache=0&sync_timestamp=1625249024405&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40fe6%2Fwater-pro%2Fdownload%2F%40fe6%2Fwater-pro-3.5.1.tgz#929e97234376057655171c78abb7d6bde37ddb1f"
+  integrity sha1-kp6XI0N2BXZVFxx4q7fWveN92x8=
   dependencies:
     "@ant-design-vue/use" "^0.0.1-0"
     "@ant-design/icons-vue" "^6.0.0"
