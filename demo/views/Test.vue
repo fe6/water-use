@@ -1,7 +1,7 @@
 <template>
-  <div style="height: 2000px">
+  <div style="background:yellow">
     <a-button class="ant-affix" type="danger" @click="setLoading">
-      这是 {{ name }}-{{ pageLoading }}
+      这是111 {{ name }}-{{ pageLoading }}
     </a-button>
   </div>
 </template>
