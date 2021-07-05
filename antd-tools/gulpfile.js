@@ -10,12 +10,9 @@ const through2 = require('through2');
 const transformLess = require('./transformLess');
 const webpack = require('webpack');
 const babel = require('gulp-babel');
-const replace = require('gulp-replace');
 const argv = require('minimist')(process.argv.slice(2));
-const { Octokit } = require('@octokit/rest');
 
 const chalk = require('chalk');
-const path = require('path');
 const ts = require('gulp-typescript');
 const gulp = require('gulp');
 const fs = require('fs');
@@ -133,13 +130,6 @@ function babelify(js, modules) {
     );
   }
   return stream.pipe(gulp.dest(modules === false ? esDir : libDir));
-}
-
-function copy() {
-  gulp
-    .src(['components/**/*.vue'])
-    .pipe(replace(/\.ts/gi, '.js'))
-    .pipe(gulp.dest(esDir));
 }
 
 function compile(modules) {

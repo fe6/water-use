@@ -6,8 +6,6 @@
 const fs = require('fs');
 const path = require('path');
 const packageInfo = require('../package.json');
-const defaultVars = require('./default-vars');
-const darkVars = require('./dark-vars');
 
 function generateVersionFile() {
   if (fs.existsSync(path.join(__dirname, '../lib'))) {
@@ -26,19 +24,11 @@ function generateVersionFile() {
   }
 }
 
-function generateThemeFileContent(theme) {
-  return `const { ${theme}ThemeSingle } = require('./theme');\nconst defaultTheme = require('./default-theme');\n
-module.exports = {
-  ...defaultTheme,
-  ...${theme}ThemeSingle
-}`;
-}
-
 // We need compile additional content for water user
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, '../lib'))) {
     // Build a entry less file to dist/water.less
-    const componentsPath = path.join(process.cwd(), 'components');
+    const componentsPath = path.join(process.cwd(), 'components/components');
     let componentsLessContent = '';
     // Build components in one file: lib/style/components.less
     fs.readdir(componentsPath, (err, files) => {
@@ -55,42 +45,6 @@ function finalizeCompile() {
   }
 }
 
-function buildThemeFile(theme, vars) {
-  // Build less entry file: dist/water.${theme}.less
-  if (theme !== 'default') {
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `water.${theme}.less`),
-      `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
-    );
-    // eslint-disable-next-line no-console
-    console.log(`Built a entry less file to dist/water.${theme}.less`);
-  } else {
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `default-theme.js`),
-      `module.exports = ${JSON.stringify(vars, null, 2)};\n`,
-    );
-    return;
-  }
-
-  // Build ${theme}.js: dist/${theme}-theme.js, for less-loader
-
-  fs.writeFileSync(
-    path.join(process.cwd(), 'dist', `theme.js`),
-    `const ${theme}ThemeSingle = ${JSON.stringify(vars, null, 2)};\n`,
-    {
-      flag: 'a',
-    },
-  );
-
-  fs.writeFileSync(
-    path.join(process.cwd(), 'dist', `${theme}-theme.js`),
-    generateThemeFileContent(theme),
-  );
-
-  // eslint-disable-next-line no-console
-  console.log(`Built a ${theme} theme js file to dist/${theme}-theme.js`);
-}
-
 function finalizeDist() {
   if (fs.existsSync(path.join(__dirname, '../dist'))) {
     // Build less entry file: dist/water.less
@@ -99,45 +53,7 @@ function finalizeDist() {
       '@import "../lib/style/index.less";\n',
     );
     // eslint-disable-next-line no-console
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'theme.js'),
-      `const defaultTheme = require('./default-theme.js');\n`,
-    );
-    // eslint-disable-next-line no-console
     console.log('Built a entry less file to dist/water-use.less');
-    buildThemeFile('default', defaultVars);
-    buildThemeFile('dark', darkVars);
-    // buildThemeFile('compact', compactVars);
-    fs.writeFileSync(
-      path.join(process.cwd(), 'dist', `theme.js`),
-      `
-function getThemeVariables(options = {}) {
-  let themeVar = {
-    'hack': \`true;\`,
-    ...defaultTheme
-  };
-  if(options.dark) {
-    themeVar = {
-      ...themeVar,
-      ...darkThemeSingle
-    }
-  }
-  if(options.compact){
-    themeVar = {
-      ...themeVar
-    }
-  }
-  return themeVar;
-}
-
-module.exports = {
-  darkThemeSingle,
-  getThemeVariables
-}`,
-      {
-        flag: 'a',
-      },
-    );
   }
 }
 

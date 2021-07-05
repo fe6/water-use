@@ -227,11 +227,53 @@ All rights reserved.
   if (process.env.RUN_ENV === 'PRODUCTION') {
     const entry = ['./index'];
     config.externals = {
-      vue: {
+      vue: { 
         root: 'Vue',
         commonjs2: 'vue',
         commonjs: 'vue',
         amd: 'vue',
+      },
+      axios: {
+        root: 'axios',
+        commonjs2: 'axios',
+        commonjs: 'axios',
+        amd: 'axios',
+      },
+      vuex: { 
+        root: 'vuex',
+        commonjs2: 'vuex',
+        commonjs: 'vuex',
+        amd: 'vuex',
+      },
+      ['vue-router']: { 
+        root: 'vue-router',
+        commonjs2: 'vue-router',
+        commonjs: 'vue-router',
+        amd: 'vue-router',
+      },
+      ['@fe6/water-pro']: { 
+        root: 'water',
+        commonjs2: 'water',
+        commonjs: 'water',
+        amd: 'water',
+      },
+      ['vue-demi']: { 
+        root: 'vue-demi',
+        commonjs2: 'vue-demi',
+        commonjs: 'vue-demi',
+        amd: 'vue-demi',
+      },
+      ['vue-types']: { 
+        root: 'vue-types',
+        commonjs2: 'vue-types',
+        commonjs: 'vue-types',
+        amd: 'vue-types',
+      },
+      ['lodash-es']: { 
+        root: 'lodash-es',
+        commonjs2: 'lodash-es',
+        commonjs: 'lodash-es',
+        amd: 'lodash-es',
       },
     };
     config.output.library = distFileBaseName;

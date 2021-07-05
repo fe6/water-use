@@ -15,7 +15,7 @@ export type ElementOf<T> = T extends (infer E)[] ? E : T extends readonly (infer
 /**
  * https://github.com/Microsoft/TypeScript/issues/29729
  */
-export type LiteralUnion<T extends U> = T | (U & {});
+export type LiteralUnion<U, T extends U> = T | (U & {});
 
 export type Data = Record<string, unknown>;
 
