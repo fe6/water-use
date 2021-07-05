@@ -1,7 +1,7 @@
 /** @format */
 
 // NOTE water/use
-import type { AppRouteModule } from '@fe6/water-use/src/index';
+import type { AppRouteModule } from '@fe6/water-use';
 import { LAYOUT_DEF, LAYOUT_BOX } from '@fe6/water-use/routers/constant';
 
 const test2Page: AppRouteModule = {

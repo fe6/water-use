@@ -1,29 +1,24 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "esnext",
+    "baseUrl": "./",
+    "paths": {
+      "@@*": ["components/*"],
+      "@fe6/water-use": ["components/*"],
+      "@fe6/water-use/*": ["components/*"]
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "experimentalDecorators": true,
     "esModuleInterop": true,
-    // 若有未使用的参数则抛错。
-    "noUnusedParameters": true,
-    // 若有未使用的局部变量则抛错
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "lib": ["esnext", "dom"],
-    "types": ["node"],
-    "paths": {
-      "@@*": ["src/*"],
-      "@fe6/water-use": ["src/*"],
-      "@fe6/water-use/*": ["src/*"]
-    }
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "noImplicitAny": false,
+    "target": "es6",
+    "lib": ["dom", "es2017"],
+    "skipLibCheck": true,
+    "allowJs": true
   },
-  "include": ["demo/**/*.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["node_modules", "**/*.js"]
+  "exclude": ["node_modules", "lib", "es", "antd-tools", "dist"]
 }

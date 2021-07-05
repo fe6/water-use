@@ -13,13 +13,13 @@ export function configStyleImportPlugin() {
         esModule: true,
         resolveStyle: () => 'em-normalize/dist/em-normalize.scss',
       },
-      {
-        libraryName: '@fe6/water-pro',
-        esModule: true,
-        resolveStyle: (name) => {
-          return `@fe6/water-pro/es/${name}/style/index`;
-        },
-      },
+      // {
+      //   libraryName: '@fe6/water-pro',
+      //   esModule: true,
+      //   resolveStyle: (name) => {
+      //     return `@fe6/water-pro/es/${name}/style/index`;
+      //   },
+      // },
     ],
   });
   return pwaPlugin;

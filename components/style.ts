@@ -1,0 +1,13 @@
+import './components/layout-box/style';
+import './components/layout-default/style';
+import './components/layout-default-actions/style';
+import './components/layout-default-content/style';
+import './components/layout-default-header/style';
+import './components/layout-default-menu/style';
+import './components/layout-default-pageheader/style';
+import './components/layout-default-panel/style';
+import './components/layout-footer/style';
+import './components/layout-simple/style';
+import './components/layout-simple-content/style';
+import './components/layout-simple-header/style';
+import './components/forbidden/style';

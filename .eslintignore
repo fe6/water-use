@@ -6,3 +6,10 @@ types/
 !/.eslintrc.js
 !/rollup.config.js
 !/.cz-configrc.js
+**/*.spec.*
+**/style/
+*.html
+/components/test/*
+es/
+lib/
+_site/
