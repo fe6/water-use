@@ -10,6 +10,11 @@ export type Component<T extends any = any> =
   | (() => Promise<typeof import('*.vue')>)
   | (() => Promise<T>);
 
+export interface BreadcrumbRoutesType {
+  path: string
+  title: string
+}
+
 export interface RouteMeta {
   // 一级导航自定义匹配
   menuActive?: string
@@ -40,6 +45,9 @@ export interface RouteMeta {
 
   // 隐藏右边的标题
   hideTitle?: boolean
+
+  // 面包屑配置
+  breadcrumbRoutes?: BreadcrumbRoutesType[]
 
   // current page transition
   transitionName?: string
