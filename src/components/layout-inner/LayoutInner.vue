@@ -35,7 +35,9 @@
                 v-for="mItem in menus"
                 :key="mItem.path"
               >
-                {{ mItem.title }}
+                <router-link :to="mItem.path">
+                  {{ mItem.title }}
+                </router-link>
               </a-menu-item>
             </a-menu>
           </div>
