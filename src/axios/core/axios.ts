@@ -15,6 +15,7 @@ import { errorResult } from '../constant';
 import { ContentTypeEnum } from '../http-enum';
 
 import { AxiosCanceler } from './axios-cancel';
+import { hasOwn } from '@fe6/shared';
 
 export * from './transform';
 export * from './types';
@@ -209,8 +210,19 @@ export class VAxios {
         .then((res: AxiosResponse<Result>) => {
           if (transformRequestData && isFunction(transformRequestData)) {
             const ret = transformRequestData(res, opt);
-            ret !== errorResult ? resolve(ret) : reject(this.options.errorLog!('网络错误'));
+            if (ret !== errorResult) {
+              if (hasOwn(options, 'callback') && isFunction(options?.callback)) {
+                options?.callback((res as unknown) as Promise<T>);
+              }
+              resolve(ret);
+            }
+            else {
+              reject(this.options.errorLog!('网络错误'));
+            }
             return;
+          }
+          if (hasOwn(options, 'callback') && isFunction(options?.callback)) {
+            options?.callback((res as unknown) as Promise<T>);
           }
           resolve((res as unknown) as Promise<T>);
         })
