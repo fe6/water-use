@@ -28,6 +28,7 @@ const transformHandler: (transformParams?: Partial<CreateAxiosOptions>) => Axios
   const errorMsg = transformParams?.errorMsg as Function;
   const errorModal = transformParams?.errorModal as Function;
   const transformRequestInner = transformOptions?.transformRequestInner as Function;
+  const requestInterceptors = transformOptions?.requestInterceptors as Function;
 
   const transformDef = {
     /**
@@ -136,7 +137,7 @@ const transformHandler: (transformParams?: Partial<CreateAxiosOptions>) => Axios
        * @description: 请求拦截器处理
        */
     requestInterceptors: (config: AxiosRequestConfig) => {
-      return config;
+      return requestInterceptors(config);
     },
 
     /**

@@ -211,8 +211,8 @@ export class VAxios {
           if (transformRequestData && isFunction(transformRequestData)) {
             const ret = transformRequestData(res, opt);
             if (ret !== errorResult) {
-              if (hasOwn(options, 'callback') && isFunction(options?.callback)) {
-                options?.callback((res as unknown) as Promise<T>);
+              if (hasOwn(options, 'success') && isFunction(options?.success)) {
+                options?.success((res as unknown) as Promise<T>);
               }
               resolve(ret);
             }
@@ -221,12 +221,15 @@ export class VAxios {
             }
             return;
           }
-          if (hasOwn(options, 'callback') && isFunction(options?.callback)) {
-            options?.callback((res as unknown) as Promise<T>);
+          if (hasOwn(options, 'success') && isFunction(options?.success)) {
+            options?.success((res as unknown) as Promise<T>);
           }
           resolve((res as unknown) as Promise<T>);
         })
         .catch((e: Error) => {
+          if (hasOwn(options, 'error') && isFunction(options?.error)) {
+            options?.error(2);
+          }
           if (requestCatch && isFunction(requestCatch)) {
             reject(requestCatch(e));
             return;

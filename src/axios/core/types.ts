@@ -12,8 +12,10 @@ export interface RequestOptions {
   isTransformRequestResult?: boolean
   // 接口地址， 不填则使用默认apiUrl
   apiUrl?: string
-  // 因为有时候需要每个接口单独定义返回不用内置的 promise
-  callback?: Function
+  // 因为有时候需要每个接口单独定义返回不用内置的 promise，成功回调
+  success?: Function
+  // 因为有时候需要每个接口单独定义返回不用内置的 promise，失败回调
+  error?: Function
   // 错误消息提示类型
   // 是否加入时间戳
   joinTime?: boolean
