@@ -49,6 +49,9 @@ export interface RouteMeta {
   // 面包屑配置
   breadcrumbRoutes?: BreadcrumbRoutesType[]
 
+  // 顶部返回的配置
+  headerGoBack?: Function
+
   // current page transition
   transitionName?: string
 
