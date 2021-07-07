@@ -59,3 +59,6 @@ export { useScrollTo } from './hooks/use-scroll-to';
 
 export * from './env';
 export { error } from './log';
+
+// utils
+export * from './utils/props';
