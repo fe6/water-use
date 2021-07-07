@@ -10,12 +10,12 @@
       @visibleChange="dropdownVisibleChange"
     >
       <div class="w-layout-default-action-box" @click.prevent>
-        <a-avatar :size="24" src="">
+        <a-avatar :size="24" :src="avatar">
           <template #icon>
             <UserOutlined />
           </template>
         </a-avatar>
-        <span class="w-layout-default-action-name">用户名</span>
+        <span class="w-layout-default-action-name">{{ nickName }}</span>
         <a-basic-arrow class="w-layout-default-action-arrow" :bottom="!downDownStatus" :top="downDownStatus" />
       </div>
       <template #overlay>

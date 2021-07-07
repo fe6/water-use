@@ -19,7 +19,7 @@ export default defineComponent({
     const { currentRoute } = useRouter();
     const selectedKeys = ref<string[]>([]);
     watchEffect(() => {
-      const selectMenu = props.menus.find((menuItem: any) => menuItem.path.includes(currentRoute.value.fullPath));
+      const selectMenu = props.menus.find((menuItem: any) => currentRoute.value.fullPath.includes(menuItem.path));
 
       if (selectMenu) {
         selectedKeys.value = [selectMenu.path];

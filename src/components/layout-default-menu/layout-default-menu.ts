@@ -32,7 +32,6 @@ export default defineComponent({
     const { VITE_MENU_ACTIVE } = getEnvConfig();
     const { currentRoute } = useRouter();
     const myStores = useStore();
-    // console.log(currentRoute.value.meta, 'currentRoute');
 
     const menus = computed(() => {
       return myStores.state.external.menus;

@@ -1,7 +1,7 @@
 {
   "name": "@fe6/water-use",
   "version": "1.8.0",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "repository": "https://github.com/fe6/water-use.git",
   "author": "iq9891 <649076408@qq.com>",
   "license": "MIT",
@@ -31,6 +31,7 @@
     "@vitejs/plugin-vue": "^1.2.4",
     "@vitejs/plugin-vue-jsx": "^1.1.6",
     "@vue/compiler-sfc": "^3.1.2",
+    "@vueuse/integrations": "^5.1.2",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "husky": "^6.0.0",

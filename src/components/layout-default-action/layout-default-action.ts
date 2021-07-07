@@ -5,7 +5,8 @@ import {
 } from '@ant-design/icons-vue';
 import { defineComponent, ref } from 'vue';
 
-import { siteHref } from '../../hooks/use-page';
+import { getProfile } from '../../utils/cookie';
+import { logoutHandler } from '../../utils/account';
 
 export default defineComponent({
   components: {
@@ -14,10 +15,6 @@ export default defineComponent({
     QuestionCircleOutlined,
   },
   setup() {
-    const logoutFn = () => {
-      // go('http://localhost:3000/shop/test1', true);
-      siteHref('http://localhost:3000/shop/test1');
-    };
     const handleMenuClick = (params: {
       key: string
       keyPath: string[]
@@ -26,7 +23,7 @@ export default defineComponent({
       const { key: curMenuName } = params;
       // TODO 因为就一个模块，所以可以存在判断
       if (curMenuName === 'logout') {
-        logoutFn();
+        logoutHandler();
       }
     };
 
@@ -36,10 +33,10 @@ export default defineComponent({
     };
 
     return {
-      logoutFn,
       handleMenuClick,
       dropdownVisibleChange,
       downDownStatus,
+      ...getProfile()
     };
   }
 });
