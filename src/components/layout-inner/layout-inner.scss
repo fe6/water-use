@@ -25,10 +25,12 @@
     margin: 0 auto;
     min-height: calc(100vh - 176px);
     background: #fff;
+    max-width: calc(100% - 48px);
     width: 100%;
 
     &-fixwidth {
       width: $bodyWidth;
+      max-width: $bodyWidth;
     }
 
     &-header {
