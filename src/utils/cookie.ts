@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { useCookies } from '@vueuse/integrations';
+import { useCookies } from '@vueuse/integrations/useCookies';
 import {
   EVENT_TOKE,
   EVENT_TOKEN_PREFIX,
