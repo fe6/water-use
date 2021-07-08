@@ -19,7 +19,6 @@ export const getRouterMeta = (currentRoute: RouteLocationNormalizedLoaded, key: 
   return '';
 };
 
-
 export const getBreadcrumbRoutes = (currentRoute: RouteLocationNormalizedLoaded) => {
   return getRouterMeta(currentRoute, 'breadcrumbRoutes');
 };
