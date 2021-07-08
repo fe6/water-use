@@ -1,15 +1,14 @@
 import { ref } from 'vue';
+import { error } from '@fe6/water-use';
+import { useCookies } from '@vueuse/integrations';
 import {
   EVENT_TOKE,
   EVENT_TOKEN_PREFIX,
-  EVENT_NICK_NAME,
-  EVENT_AVATAR,
-  EVENT_MOBILE,
+  EVENT_PROFILE,
   EVENT_SHOP_ID,
   EVENT_SHOP_NAME,
   EVENT_SHOP_IS_AUDITED
 } from '../constant';
-import { useCookies } from '@vueuse/integrations';
 import { getEnvConfig, isDevMode } from '../env';
 
 const {
@@ -18,7 +17,7 @@ const {
 
 const cookieOptions = ref<any>({});
 
-const cookies = useCookies([EVENT_TOKE]);
+const cookies = useCookies([EVENT_TOKE, EVENT_PROFILE]);
 
 export const setToken = (loginData: any) => {
   const { expiresIn, accessToken } = loginData;
@@ -44,25 +43,15 @@ export const removeToken = () => {
 };
 
 export const setProfile = (profileData: any) => {
-  const { avatar, nickname, mobile } = profileData;
-
-  cookies.set(EVENT_AVATAR, avatar, cookieOptions.value);
-  cookies.set(EVENT_NICK_NAME, nickname, cookieOptions.value);
-  cookies.set(EVENT_MOBILE, mobile, cookieOptions.value);
+  cookies.set(EVENT_PROFILE, JSON.stringify(profileData), cookieOptions.value);
 };
 
-export const getProfile = () => {
-  return {
-    avatar: cookies.get(EVENT_AVATAR),
-    nickName: cookies.get(EVENT_NICK_NAME),
-    mobile: cookies.get(EVENT_MOBILE),
-  };
+export const getProfile = (): any => {
+  return cookies.get(EVENT_PROFILE);
 };
 
 export const removeProfile = () => {
-  cookies.remove(EVENT_AVATAR);
-  cookies.remove(EVENT_NICK_NAME);
-  cookies.remove(EVENT_MOBILE);
+  cookies.remove(EVENT_PROFILE);
 };
 
 export const setShop = (shopData: any) => {

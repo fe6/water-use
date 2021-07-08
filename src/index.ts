@@ -65,6 +65,7 @@ export { error } from './log';
 // utils
 export * from './utils/props';
 export * from './utils/cookie';
+export * from './utils/account';
 
 // constant
 export * from './constant';

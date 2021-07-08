@@ -3,7 +3,7 @@ import {
   LogoutOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons-vue';
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onBeforeMount } from 'vue';
 
 import { getProfile } from '../../utils/cookie';
 import { logoutHandler } from '../../utils/account';
@@ -32,11 +32,22 @@ export default defineComponent({
       downDownStatus.value = status;
     };
 
+    const avatar = ref('');
+    const nickName = ref('');
+    const handleProfile = async() => {
+      const profile = await getProfile();
+      nickName.value = profile.nickname;
+      avatar.value = profile.avatar;
+    };
+
+    onBeforeMount(handleProfile);
+
     return {
       handleMenuClick,
       dropdownVisibleChange,
       downDownStatus,
-      ...getProfile()
+      avatar,
+      nickName
     };
   }
 });

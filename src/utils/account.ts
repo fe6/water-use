@@ -5,6 +5,7 @@ import {
   removeProfile,
 } from '../utils/cookie';
 import { getEnvConfig } from '../env';
+import { getLogout } from '../apis/account';
 
 const goLoginPage = (isRedirect?: boolean) => {
   const { VITE_COMMON } = getEnvConfig();
@@ -13,7 +14,8 @@ const goLoginPage = (isRedirect?: boolean) => {
   siteReplace(`${redirectHost}login${redirectUrl}`);
 };
 
-export const logoutHandler = (isRedirect?: boolean) => {
+export const logoutHandler = async(isRedirect?: boolean) => {
+  await getLogout();
   removeToken();
   removeShop();
   removeProfile();

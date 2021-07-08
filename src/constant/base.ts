@@ -2,11 +2,7 @@ export const EVENT_TOKE = 'Em-Consumer-Token';
 
 export const EVENT_TOKEN_PREFIX = 'Bearer ';
 
-export const EVENT_AVATAR = 'Em-Consumer-Avatar';
-
-export const EVENT_NICK_NAME = 'Em-Consumer-Nick-Name';
-
-export const EVENT_MOBILE = 'Em-Consumer-Mobile';
+export const EVENT_PROFILE = 'Em-Consumer-Profile';
 
 export const EVENT_SHOP_ID = 'X-Request-Em-Consumer-Shop-Id';
 
