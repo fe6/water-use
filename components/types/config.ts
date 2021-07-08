@@ -7,6 +7,8 @@ export interface EnvConfig {
   VITE_USE_AUTH: boolean;
   VITE_USE_MOCK: boolean;
   VITE_MENU_ACTIVE: string;
+  VITE_COMMON: string;
+  VITE_ENV: string;
   VITE_API: string;
   VITE_PUBLIC_PATH: string;
   VITE_BASE_HOME: string;

@@ -28,7 +28,7 @@ export default function createAxios(opt?: Partial<CreateAxiosOptions>) {
       // 格式化提交参数时间
       formatDate: true,
       // 接口地址
-      apiUrl: '',
+      apiUrl: opt?.apiUrl,
       //  是否加入时间戳
       joinTime: true,
     },

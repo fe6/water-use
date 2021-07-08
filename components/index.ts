@@ -16,6 +16,7 @@ import waterStores from './stores';
 
 // axios
 import createAxios from './axios';
+import defHttp from './apis';
 
 import { AppRouteRecordRaw as AppRouteRecordRaw2 } from './routers/types';
 
@@ -35,6 +36,7 @@ export { setupStore } from './stores';
 // axios
 export {
   createAxios,
+  defHttp,
 };
 
 // components
@@ -54,8 +56,16 @@ export {
 
 // hooks
 export { useMessage } from './hooks/use-message';
-export { useGo, siteHref, siteReload } from './hooks/use-page';
+export * from './hooks/use-page';
 export { useScrollTo } from './hooks/use-scroll-to';
 
 export * from './env';
 export { error } from './log';
+
+// utils
+export * from './utils/props';
+export * from './utils/cookie';
+export * from './utils/account';
+
+// constant
+export * from './constant';

@@ -48,6 +48,13 @@ export function useGo() {
 // };
 
 /**
+ * @description: location replace 封装
+ */
+export const siteReplace = (url: string) => {
+  location.replace(url);
+};
+
+/**
  * @description: location href 封装
  */
 export const siteHref = (url: string) => {

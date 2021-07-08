@@ -6,13 +6,10 @@ import {
   getBreadcrumbRoutes,
   getTitle,
   getHeaderGoBack,
-} from './use-path';
+} from '../../layout-default-pageheader/src/use-path';
 
 export default defineComponent({
-  name: 'WLayoutDefaultPageheader',
-  components: {
-    ArrowLeftOutlined,
-  },
+  name: 'WLayoutInnerPageheader',
   setup() {
     const { currentRoute } = useRouter();
     const headerGoBack = ref(getHeaderGoBack(currentRoute.value));
@@ -31,24 +28,20 @@ export default defineComponent({
     };
   },
   render() {
-    let titleNode: any = null;
-
-    if (this.title) {
-      titleNode = (<h2 class="w-layout-default-pageheader-title">
-        <ArrowLeftOutlined />
-        <span class="w-layout-default-pageheader-title-inner">{ this.title }</span>
-      </h2>);
-    }
-
-    return (<div class="w-layout-default-pageheader">
+    return (<div class="w-layout-inner-pageheader">
       <a-breadcrumb
-        class="w-layout-default-pageheader-breadcrumb"
+        class="w-layout-inner-pageheader-breadcrumb"
         routes={this.breadcrumbRoutes}
         v-slots={{
           itemRender: ({ route }: any) => route.title
         }}
       />
-      {titleNode}
+      <h2 class="w-layout-inner-pageheader-title">
+        <ArrowLeftOutlined
+          onClick={this.headerGoBack}
+        />
+        <span class="w-layout-inner-pageheader-title-inner">{ this.title }</span>
+      </h2>
     </div>);
   },
 });
