@@ -7,7 +7,7 @@ import { hasOwn } from '@vue/shared';
 
 export const getRouterMeta = (currentRoute: RouteLocationNormalizedLoaded, key: string) => {
   if (!key) {
-    return '';
+    return [];
   }
   if (
     hasOwn(currentRoute, 'meta')
@@ -16,14 +16,15 @@ export const getRouterMeta = (currentRoute: RouteLocationNormalizedLoaded, key: 
   ) {
     return (currentRoute.meta as any)[key];
   }
-  return '';
+  return [];
 };
 
 export const getBreadcrumbRoutes = (currentRoute: RouteLocationNormalizedLoaded) => {
   return getRouterMeta(currentRoute, 'breadcrumbRoutes');
 };
 export const getTitle = (currentRoute: RouteLocationNormalizedLoaded) => {
-  return getRouterMeta(currentRoute, 'title');
+  const title = getRouterMeta(currentRoute, 'title');
+  return JSON.stringify(title) === '[]' ? '' : title;
 };
 
 export const getHeaderGoBack = (currentRoute: RouteLocationNormalizedLoaded) => {

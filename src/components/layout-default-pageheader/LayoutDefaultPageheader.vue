@@ -1,11 +1,21 @@
 <template>
-  <div class="w-layout-default-pageheader">
-    <a-breadcrumb class="w-layout-default-pageheader-breadcrumb" :routes="breadcrumbRoutes">
+  <div v-if="title || breadcrumbRoutes.length" class="w-layout-default-pageheader">
+    <a-breadcrumb
+      v-if="breadcrumbRoutes.length"
+      class="w-layout-default-pageheader-breadcrumb"
+      :routes="breadcrumbRoutes"
+    >
       <template #itemRender="{ route }">
         {{ route.title }}
       </template>
     </a-breadcrumb>
-    <h2 v-if="title" class="w-layout-default-pageheader-title">
+    <h2
+      v-if="title"
+      class="w-layout-default-pageheader-title"
+      :class="{
+        ['w-layout-default-pageheader-title-only']: !breadcrumbRoutes.length
+      }"
+    >
       <ArrowLeftOutlined />
       <span class="w-layout-default-pageheader-title-inner">{{ title }}</span>
     </h2>

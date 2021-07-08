@@ -21,6 +21,10 @@
     align-items: center;
     margin: 0;
 
+    &-only {
+      padding:  16px 24px;
+    }
+
     &-inner {
       font-size: 20px;
       padding-left: 16px;
