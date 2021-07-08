@@ -2,10 +2,10 @@
   background: #fff;
 
   &-breadcrumb {
-    padding: 12px 24px 16px;
+    padding: 12px 24px 16px !important;
     font-family: "PingFangSC-Regular";
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.45);
+    color: rgba(0, 0, 0, 0.45) !important;
     line-height: 22px;
     font-weight: 400;
   }
@@ -19,6 +19,7 @@
     font-weight: 500;
     display: flex;
     align-items: center;
+    margin: 0;
 
     &-inner {
       font-size: 20px;
