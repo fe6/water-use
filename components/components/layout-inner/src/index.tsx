@@ -2,7 +2,7 @@ import { defineComponent, ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 
 import { propTypes } from '../../../utils/prop-types';
-import WLayoutInnerPageheader from '../../layout-inner-pageheader/LayoutInnerPageheader.vue';
+import WLayoutInnerPageheader from '../../layout-inner-pageheader/src';
 
 const RouterComp: any = {
   template: `<router-view v-slot="{ Component }" class="w-layout-inner-right">

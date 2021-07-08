@@ -5789,7 +5789,11 @@ elliptic@^6.5.3:
     minimalistic-assert "^1.0.1"
     minimalistic-crypto-utils "^1.0.1"
 
-<<<<<<< HEAD
+em-cookie@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.nlark.com/em-cookie/download/em-cookie-1.1.1.tgz#fdf4cccaa71320fb694188807df0eae16ee312af"
+  integrity sha1-/fTMyqcTIPtpQYiAffDq4W7jEq8=
+
 emittery@^0.7.1:
   version "0.7.2"
   resolved "https://registry.nlark.com/emittery/download/emittery-0.7.2.tgz#25595908e13af0f5674ab419396e2fb394cdfa82"
@@ -5799,12 +5803,6 @@ emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.nlark.com/emoji-regex/download/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
   integrity sha1-kzoEBShgyF6DwSJHnEdIqOTHIVY=
-=======
-em-cookie@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.nlark.com/em-cookie/download/em-cookie-1.1.1.tgz#fdf4cccaa71320fb694188807df0eae16ee312af"
-  integrity sha1-/fTMyqcTIPtpQYiAffDq4W7jEq8=
->>>>>>> up/master
 
 emoji-regex@^8.0.0:
   version "8.0.0"

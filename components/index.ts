@@ -1,5 +1,8 @@
 import { App } from 'vue';
 
+// water
+import waterPro from './water';
+
 // components
 import AForbidden from './components/forbidden/src';
 import ANotPage from './components/not-page/src';
@@ -19,6 +22,11 @@ import createAxios from './axios';
 import defHttp from './apis';
 
 import { AppRouteRecordRaw as AppRouteRecordRaw2 } from './routers/types';
+
+// water
+export {
+  waterPro,
+};
 
 // router
 export * from './routers/types';
