@@ -2,6 +2,7 @@
 
 declare module 'vue-drag-resize';
 declare module '@fe6/water-pro';
+declare module 'em-cookie';
 
 declare interface Fn<T = any, R = T> {
   (...arg: T[]): R;
