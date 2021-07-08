@@ -7,7 +7,7 @@ import { getEnvConfig, isDevMode } from '../env';
 import { error } from '../log';
 import waterStores from '../stores';
 import { useMessage } from '../hooks/use-message';
-import { getToken } from '../utils/cookie';
+import { getToken, getShop } from '../utils/cookie';
 
 const { createMessage, createErrorModal } = useMessage();
 
@@ -32,7 +32,7 @@ export default createAxios({
       const token = getToken();
       config.headers['X-Session-Id'] = getGuid;
       config.headers['X-Request-Scene-Type'] = 'biz_web';
-      config.headers['X-Request-Shop-Id'] = localStorage['X-Request-Em-Consumer-Shop-Id'] || 0;
+      config.headers['X-Request-Shop-Id'] = getShop().shopId || 0;
       if (token) {
         // jwt token
         config.headers.Authorization = token;

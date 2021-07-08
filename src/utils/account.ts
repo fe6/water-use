@@ -6,6 +6,7 @@ import {
 } from '../utils/cookie';
 import { getEnvConfig } from '../env';
 import { getLogout } from '../apis/account';
+import { nextTick } from 'vue';
 
 const goLoginPage = (isRedirect?: boolean) => {
   const { VITE_COMMON } = getEnvConfig();
@@ -19,5 +20,6 @@ export const logoutHandler = async(isRedirect?: boolean) => {
   removeToken();
   removeShop();
   removeProfile();
+  await nextTick();
   goLoginPage(isRedirect);
 };

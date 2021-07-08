@@ -4,6 +4,7 @@ import {
   ShareAltOutlined,
 } from '@ant-design/icons-vue';
 
+import { propTypes } from '../../utils/prop-types';
 import ALayoutDefaultAuth from '../layout-default-auth/LayoutDefaultAuth.vue';
 import AIcon from '../icon';
 
@@ -15,6 +16,9 @@ export default defineComponent({
     ShareAltOutlined,
     EditOutlined,
     ALayoutDefaultAuth,
+  },
+  props: {
+    shopInfo: propTypes.object,
   },
   setup() {
     return {

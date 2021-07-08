@@ -1,13 +1,11 @@
 import { ref } from 'vue';
-import { error } from '@fe6/water-use';
 import { useCookies } from '@vueuse/integrations';
 import {
   EVENT_TOKE,
   EVENT_TOKEN_PREFIX,
   EVENT_PROFILE,
   EVENT_SHOP_ID,
-  EVENT_SHOP_NAME,
-  EVENT_SHOP_IS_AUDITED
+  EVENT_SHOP_INFO,
 } from '../constant';
 import { getEnvConfig, isDevMode } from '../env';
 
@@ -39,7 +37,7 @@ export const getToken = () => {
 };
 
 export const removeToken = () => {
-  cookies.remove(EVENT_TOKE);
+  cookies.set(EVENT_TOKE, '', cookieOptions.value);
 };
 
 export const setProfile = (profileData: any) => {
@@ -51,29 +49,20 @@ export const getProfile = (): any => {
 };
 
 export const removeProfile = () => {
-  cookies.remove(EVENT_PROFILE);
+  cookies.set(EVENT_PROFILE, '', cookieOptions.value);
 };
 
 export const setShop = (shopData: any) => {
-  const { shopId, shopName, isAudited } = shopData;
-
+  const { shopId } = shopData;
   cookies.set(EVENT_SHOP_ID, shopId, cookieOptions.value);
-  cookies.set(EVENT_SHOP_NAME, shopName, cookieOptions.value);
-  if (isAudited) {
-    cookies.set(EVENT_SHOP_NAME, isAudited, cookieOptions.value);
-  }
+  cookies.set(EVENT_SHOP_INFO, shopData, cookieOptions.value);
 };
 
 export const getShop = () => {
-  return {
-    shopId: cookies.get(EVENT_SHOP_ID),
-    shopName: cookies.get(EVENT_SHOP_NAME),
-    isAudited: cookies.get(EVENT_SHOP_IS_AUDITED),
-  };
+  return cookies.get(EVENT_SHOP_INFO);
 };
 
 export const removeShop = () => {
-  cookies.remove(EVENT_SHOP_ID);
-  cookies.remove(EVENT_SHOP_NAME);
-  cookies.remove(EVENT_SHOP_IS_AUDITED);
+  cookies.set(EVENT_SHOP_ID, '', cookieOptions.value);
+  cookies.set(EVENT_SHOP_INFO, '', cookieOptions.value);
 };

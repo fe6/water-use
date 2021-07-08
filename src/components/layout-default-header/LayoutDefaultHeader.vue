@@ -20,14 +20,17 @@
           placement="bottomLeft"
         >
           <template #overlay>
-            <a-layout-default-panel />
+            <a-layout-default-panel :shop-info="shopInfo" />
           </template>
           <div class="w-layout-default-header-action w-layout-default-header-item">
-            <span class="w-layout-default-header-title w-layout-default-header-item">中国金茂酒店官方旗舰店</span>
+            <span class="w-layout-default-header-title w-layout-default-header-item">{{ shopInfo.shopName }}</span>
             <a-basic-arrow class="w-layout-default-header-arrow w-layout-default-header-item" :bottom="!visible" :top="visible" />
           </div>
         </a-dropdown>
-        <a-layout-default-auth class="w-layout-default-header-item" />
+        <a-layout-default-auth
+          :is-auth="shopInfo.isAudited"
+          class="w-layout-default-header-item"
+        />
       </div>
       <div style="flex: 1 1 0%;" />
       <a-layout-default-action />
