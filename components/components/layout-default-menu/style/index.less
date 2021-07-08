@@ -1,0 +1,113 @@
+@import '../../style/config.less';
+
+.w-layout-default-menu {
+  &-logo {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+
+    &-box {
+      height: 32px;
+      margin: 16px;
+    }
+  }
+
+  &-sider {
+    height: 100vh;
+
+    &-light {
+      border-right: 1px solid @border;
+      background: #fff;
+
+      & .ant-menu-inline,
+      .ant-menu-vertical,
+      .ant-menu-vertical-left {
+        border: none;
+      }
+    }
+  }
+
+  &-inner,
+  &-dark,
+  &-light {
+    height: calc(100vh - @navHeight);
+  }
+
+  &-light {
+    & .ant-menu-vertical > .ant-menu-item,
+    .ant-menu-vertical-left > .ant-menu-item,
+    .ant-menu-vertical-right > .ant-menu-item,
+    .ant-menu-inline > .ant-menu-item,
+    .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+      opacity: 0.75;
+      font-family: "PingFangSC-Medium";
+      font-size: 14px;
+      color: #000;
+      font-weight: 500;
+    }
+    & .ant-menu-sub.ant-menu-inline > .ant-menu-item,
+    .ant-menu-sub.ant-menu-inline
+      > .ant-menu-submenu
+      > .ant-menu-submenu-title {
+      padding-left: 24px !important;
+      opacity: 0.65;
+      font-family: "PingFangSC-Regular";
+      font-size: 14px;
+      color: #000;
+      font-weight: 400;
+    }
+
+    & .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+      background: #e6f7ff !important;
+      color: #1890ff !important;
+      opacity: 1;
+    }
+  }
+
+  &-dark {
+    & .ant-layout-sider,
+    & .ant-menu-dark,
+    .ant-menu-dark .ant-menu-sub {
+      background: #001529 !important;
+    }
+    & .ant-menu.ant-menu-dark .ant-menu-item-selected,
+    .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+      background: #000c17 !important;
+      color: #fff !important;
+    }
+  }
+
+  &-header {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    width: 100%;
+
+    &-name {
+      height: @navHeight;
+      line-height: @navHeight;
+      font-family: "PingFangSC-Medium";
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.85);
+      text-align: center;
+      font-weight: 500;
+      border-bottom: 1px solid @border;
+    }
+  }
+
+  &-item {
+    display: flex;
+  }
+
+  &-name {
+    padding-left: 14px;
+  }
+
+  &-other {
+    margin-top: 54px !important;
+  }
+}

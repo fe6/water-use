@@ -11,7 +11,7 @@ import {
   defineComponent,
 } from 'vue';
 
-import WLayoutSimpleContent from '../../src/components/layout-simple-content/LayoutSimpleContent.vue';
+import WLayoutSimpleContent from '@@components/layout-simple-content/src';
 
 export default defineComponent({
   components: {

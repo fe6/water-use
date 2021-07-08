@@ -23,9 +23,9 @@ import {
   defineComponent,
   ref,
 } from 'vue';
-import AModalPro, { useModal } from '@fe6/water-pro/components/modal-pro/index';
+import AModalPro, { useModal } from '@fe6/water-pro';
 
-import WLayoutDefaultContent from '../../src/components/layout-default-content/LayoutDefaultContent.vue';
+import WLayoutDefaultContent from '@@components/layout-default-content/src';
 
 export default defineComponent({
   components: {

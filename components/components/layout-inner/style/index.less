@@ -1,0 +1,53 @@
+@import '../../style/config.less';
+
+.w-layout-inner {
+  &-box {
+    display: flex;
+    min-height: calc(100vh - 176px);
+    padding: 24px;
+    
+    &-header {
+      min-height: calc(100vh - 270px);
+    }
+
+    &-fixwidth {
+      padding: 16px 0;
+    }
+  }
+
+  &-main {
+    padding: 24px 24px 0;
+
+    &-header {
+      padding: 0;
+    }
+  }
+
+  &-core {
+    margin: 0 auto;
+    min-height: calc(100vh - 176px);
+    background: #fff;
+    max-width: calc(100% - 48px);
+    width: 100%;
+
+    &-fixwidth {
+      width: @bodyWidth;
+      max-width: @bodyWidth;
+    }
+
+    &-header {
+      min-height: calc(100vh - 270px);
+      margin: 24px auto 0;
+    }
+  }
+
+  &-left {
+    width: 224px;
+    border-right: 1px solid $border;
+  }
+
+  &-right {
+    flex: 1 1;
+    padding: 8px 40px;
+  }
+}

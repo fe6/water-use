@@ -31,7 +31,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         {
           // @@xxxx  =>  src/xxx
           find: /^\@fe6\/water-use/,
-          replacement: `${pathResolve('src')}/`,
+          replacement: `${pathResolve('components')}/`,
         },
       ],
     },
@@ -78,9 +78,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           },
           javascriptEnabled: true,
         },
-        scss: {
-          additionalData: `@import "@fe6/water-use/style/config.scss";@import "@fe6/water-use/style/font.scss";`
-        }
       },
     },
     // The vite plugin used by the project. The quantity is large, so it is separately extracted and managed
