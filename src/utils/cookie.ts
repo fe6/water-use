@@ -9,6 +9,7 @@ import {
   EVENT_SHOP_INFO,
 } from '../constant';
 import { getEnvConfig, isDevMode } from '../env';
+import { error } from '../log';
 
 const {
   VITE_ENV
@@ -48,7 +49,13 @@ export const setProfile = (profileData: any) => {
 };
 
 export const getProfile = (): any => {
-  return VueCookies.get(EVENT_PROFILE);
+  try {
+    return JSON.parse(VueCookies.get(EVENT_PROFILE));
+  }
+  catch (err) {
+    error(err);
+  }
+  return null;
 };
 
 export const removeProfile = () => {
@@ -57,9 +64,10 @@ export const removeProfile = () => {
 };
 
 export const setShop = (shopData: any) => {
+  const myPhone = VueCookies.get(EVENT_PHONE);
   const { shopId } = shopData;
-  VueCookies.set(`${VueCookies.get(EVENT_PHONE)}_${EVENT_SHOP_ID}`, shopId, myExpires.value, cookiePath, domain.value);
-  VueCookies.set(`${VueCookies.get(EVENT_PHONE)}_${EVENT_SHOP_INFO}`, shopData, myExpires.value, cookiePath, domain.value);
+  VueCookies.set(`${myPhone}_${EVENT_SHOP_ID}`, shopId, myExpires.value, cookiePath, domain.value);
+  VueCookies.set(`${myPhone}_${EVENT_SHOP_INFO}`, JSON.stringify(shopData), myExpires.value, cookiePath, domain.value);
 };
 
 export const getShopId = () => {
@@ -67,10 +75,17 @@ export const getShopId = () => {
 };
 
 export const getShop = () => {
-  return VueCookies.get(`${VueCookies.get(EVENT_PHONE)}_${EVENT_SHOP_INFO}`);
+  try {
+    return JSON.parse(VueCookies.get(`${VueCookies.get(EVENT_PHONE)}_${EVENT_SHOP_INFO}`));
+  }
+  catch (err) {
+    error(err);
+  }
+  return null;
 };
 
 export const removeShop = () => {
-  VueCookies.remove(EVENT_SHOP_ID);
-  VueCookies.remove(EVENT_SHOP_INFO);
+  const myPhone = VueCookies.get(EVENT_PHONE);
+  VueCookies.remove(`${myPhone}_${EVENT_SHOP_ID}`);
+  VueCookies.remove(`${myPhone}_${EVENT_SHOP_INFO}`);
 };

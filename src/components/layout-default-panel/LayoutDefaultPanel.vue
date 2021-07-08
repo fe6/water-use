@@ -14,7 +14,7 @@
           <span>{{ shopInfo.shopName }}</span>
           <EditOutlined />
         </div>
-        <div>
+        <div class="w-layout-default-panel-tag">
           <a-layout-default-auth
             size="small"
             class="w-layout-default-panel-tag"
