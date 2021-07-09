@@ -1,12 +1,16 @@
 import { App } from 'vue';
 
+// water
+import waterPro from './water';
+
 // components
-import AForbidden from './components/forbidden/Forbidden.vue';
-import ANotPage from './components/not-page/NotPage.vue';
+import WForbidden from './components/forbidden/Forbidden.vue';
+import WNotPage from './components/not-page/NotPage.vue';
 import AIcon from './components/icon';
-import ALayoutBox from './components/layout-box/LayoutBox.vue';
-import ALayoutDefault from './components/layout-default/LayoutDefault.vue';
-import ALayoutDefaultContent from './components/layout-default-content/LayoutDefaultContent.vue';
+import WLayoutBox from './components/layout-box/LayoutBox.vue';
+import WLayoutDefault from './components/layout-default/LayoutDefault.vue';
+import WLayoutDefaultContent from './components/layout-default-content/LayoutDefaultContent.vue';
+import WLayoutSimpleContent from './components/layout-simple-content/LayoutSimpleContent.vue';
 
 // router
 import waterRouter from './routers';
@@ -20,9 +24,24 @@ import defHttp from './apis';
 
 import { AppRouteRecordRaw as AppRouteRecordRaw2 } from './routers/types';
 
+export {
+  WForbidden,
+  WNotPage,
+  AIcon,
+  WLayoutBox,
+  WLayoutDefault,
+  WLayoutDefaultContent,
+  WLayoutSimpleContent,
+};
+
+// water
+export {
+  waterPro,
+};
+
 // router
 export * from './routers/types';
-export { LAYOUT_DEF, LAYOUT_BOX } from './routers/constant';
+export { LAYOUT_DEF, LAYOUT_BOX, LAYOUT_SIMPLE, LAYOUT_INNER } from './routers/constant';
 export { PAGE_NOT_FOUND_ROUTE } from './routers/configs/routers';
 export declare interface AppRouteRecordRaw extends AppRouteRecordRaw2 {}
 export declare interface AppRouteModule extends AppRouteRecordRaw {}
@@ -41,12 +60,12 @@ export {
 
 // components
 export default (app: App<Element>) => {
-  app.component('AForbidden', AForbidden);
-  app.component('ANotPage', ANotPage);
+  app.component('WForbidden', WForbidden);
+  app.component('WNotPage', WNotPage);
   app.component(AIcon.name, AIcon);
-  app.component('ALayoutBox', ALayoutBox);
-  app.component(ALayoutDefault.name, ALayoutDefault);
-  app.component('ALayoutDefaultContent', ALayoutDefaultContent);
+  app.component('WLayoutBox', WLayoutBox);
+  app.component(WLayoutDefault.name, WLayoutDefault);
+  app.component('WLayoutDefaultContent', WLayoutDefaultContent);
 };
 
 // router
