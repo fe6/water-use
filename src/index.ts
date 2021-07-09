@@ -13,7 +13,7 @@ import WLayoutDefaultContent from './components/layout-default-content/LayoutDef
 import WLayoutSimpleContent from './components/layout-simple-content/LayoutSimpleContent.vue';
 
 // router
-import waterRouter from './routers';
+import waterRouter, { setupRouter } from './routers';
 
 // vuex
 import waterStores from './stores';
@@ -70,7 +70,8 @@ export default (app: App<Element>) => {
 
 // router
 export {
-  waterRouter
+  waterRouter,
+  setupRouter
 };
 
 // hooks
