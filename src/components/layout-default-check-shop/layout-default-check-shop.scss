@@ -1,0 +1,57 @@
+.w-layout-default-check-shop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 32px;
+
+  &-empty {
+    margin: 50px auto 100px;
+  }
+
+  &-box {
+    margin-bottom: 16px;
+  }
+
+  &-title {
+    font-family: "PingFangSC-Medium";
+    font-size: 14px;
+    line-height: 20px;
+    padding-bottom: 4px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &-img {
+    flex-shrink: 0;
+  }
+
+  &-right {
+    padding-left: 16px;
+    position: relative;
+    width: 100%;
+  }
+
+  &-desc {
+    font-family: "PingFangSC-Regular";
+    font-size: 12px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &-state {
+    padding-top: 22px;
+  }
+
+  &-item {
+    display: flex;
+  }
+
+  &-btn {
+    position: absolute !important;
+    right: 0;
+    bottom: 0;
+  }
+}

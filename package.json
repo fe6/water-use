@@ -25,7 +25,7 @@
     "@ant-design/icons-vue": "^6.0.1",
     "@fe6/norm": "^3.2.0",
     "@fe6/shared": "^0.9.1",
-    "@fe6/water-pro": "^3.5.1",
+    "@fe6/water-pro": "^3.7.3",
     "@types/lodash-es": "^4.17.4",
     "@types/node": "^15.12.5",
     "@vitejs/plugin-vue": "^1.2.4",

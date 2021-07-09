@@ -80,4 +80,26 @@
     font-family: "PingFangSC-Medium";
     color: rgba(0, 0, 0, 0.85);
   }
+
+  &-check {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 32px;
+
+    &-title {
+      font-family: "PingFangSC-Medium";
+      font-size: 14px;
+      line-height: 20px;
+      padding-bottom: 4px;
+      color: rgba(0, 0, 0, 0.85);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    &-search {
+      width: 140px;
+      margin-left: 16px;
+    }
+  }
 }
