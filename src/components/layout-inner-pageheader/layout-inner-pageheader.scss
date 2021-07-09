@@ -1,0 +1,38 @@
+.w-layout-inner-pageheader {
+  background: #fff;
+
+  &-breadcrumb {
+    padding: 12px 0 16px;
+    font-family: "PingFangSC-Regular";
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+    line-height: 22px;
+    font-weight: 400;
+    width: $bodyWidth;
+    margin: 0 auto;
+  }
+
+  &-title {
+    padding: 0 0 16px;
+    font-family: "PingFangSC-Medium";
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    width: $bodyWidth;
+    margin: 0 auto;
+
+    &-inner {
+      font-size: 20px;
+      padding-left: 16px;
+    }
+
+    & .anticon-arrow-left {
+      & svg {
+        display: block;
+      }
+    }
+  }
+}

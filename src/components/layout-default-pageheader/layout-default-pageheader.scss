@@ -1,0 +1,39 @@
+.w-layout-default-pageheader {
+  background: #fff;
+
+  &-breadcrumb {
+    padding: 12px 24px 16px !important;
+    font-family: "PingFangSC-Regular";
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45) !important;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  &-title {
+    padding: 0 24px 16px;
+    font-family: "PingFangSC-Medium";
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    &-only {
+      padding:  16px 24px;
+    }
+
+    &-inner {
+      font-size: 20px;
+      padding-left: 16px;
+    }
+
+    & .anticon-arrow-left {
+      & svg {
+        display: block;
+      }
+    }
+  }
+}

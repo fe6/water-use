@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    // 若有未使用的参数则抛错。
+    "noUnusedParameters": true,
+    // 若有未使用的局部变量则抛错
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "lib": ["esnext", "dom"],
+    "types": ["node"],
+    "paths": {
+      "@@*": ["src/*"],
+      "@fe6/water-use": ["src/*"],
+      "@fe6/water-use/*": ["src/*"]
+    }
+  },
+  "include": ["demo/**/*.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules", "**/*.js"]
+}

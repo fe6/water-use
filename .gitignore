@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+vetur
+lib
+es
+dist
+*.log
