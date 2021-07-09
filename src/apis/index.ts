@@ -17,7 +17,7 @@ const getGuid = localStorage['X-Session-Em-Consumer-Id'] || uuid();
 localStorage['X-Session-Em-Consumer-Id'] = getGuid;
 
 export default createAxios({
-  apiUrl: ENV.VITE_API,
+  apiUrl: ENV.VITE_API || 'https://api.dev.mosh.cn/',
   isDevMode,
   errorLog: error,
   errorMsg: createMessage.error,

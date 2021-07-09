@@ -20,8 +20,13 @@ export default defineComponent({
   props: {
     shopInfo: propTypes.object,
   },
-  setup() {
+  emits: ['on-change-shop'],
+  setup(_, { emit }) {
+    const changeShop = () => {
+      emit('on-change-shop');
+    };
     return {
+      changeShop,
       errUploadImage,
     };
   }

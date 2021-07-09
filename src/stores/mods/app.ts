@@ -3,10 +3,12 @@
 
 interface AppStateModal {
   pageLoading: boolean
+  shopId: string
 }
 
 const state = {
   pageLoading: false,
+  shopId: '0',
 };
 
 let timeId: TimeoutHandle;
@@ -15,6 +17,9 @@ let timeId: TimeoutHandle;
 const getters = {
   getPageLoading: (state: AppStateModal) => {
     return state.pageLoading;
+  },
+  getShopId: (state: AppStateModal) => {
+    return state.shopId;
   }
 };
 
@@ -32,6 +37,9 @@ const actions = {
       commit('commitPageLoading', loading);
       clearTimeout(timeId);
     }
+  },
+  setShopId({ commit }: any, shopId: number | string) {
+    commit('commitShopId', shopId);
   }
 };
 
@@ -39,6 +47,9 @@ const actions = {
 const mutations = {
   commitPageLoading(state: AppStateModal, loading: boolean) {
     state.pageLoading = loading;
+  },
+  commitShopId(shopId: number | string) {
+    state.shopId = String(shopId);
   },
 };
 

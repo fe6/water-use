@@ -33,6 +33,12 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           find: /^\@fe6\/water-use/,
           replacement: `${pathResolve('src')}/`,
         },
+        {
+          // 不然 water-use找不到 组件库
+          // @@xxxx  =>  src/xxx
+          find: /^\@fe6\/water-pro/,
+          replacement: `${pathResolve('node_modules/@fe6/water-pro')}/`,
+        },
       ],
     },
     server: {

@@ -71,7 +71,7 @@ export default (app: App<Element>) => {
 // router
 export {
   waterRouter,
-  setupRouter
+  setupRouter,
 };
 
 // hooks
