@@ -67,6 +67,38 @@
       </template>
       <WLayoutDefaultCheckShop :shop-name="shopName" />
     </AModalPro>
+    <AModalPro
+      v-model:value="authModalStatus"
+      title="资质认证"
+      :width="1000"
+      :min-height="400"
+      :body-style="{ height: '432px' }"
+      cancel-text="暂不认证"
+      ok-text="立即认证"
+      :ok-button-props="{
+        type: 'danger',
+      }"
+      @ok="authModalOk"
+      @cancel="authModalCancel"
+      @register="registerAuthModal"
+    >
+      <div
+        class="w-layout-default-header-auth"
+      >
+        <a-image
+          :width="275"
+          :height="275"
+          :src="authImage"
+          :preview="false"
+        />
+      </div>
+      <a-typography-title :level="4" style="margin-bottom: 16px; text-align: center;">
+        为了确保店铺正常营业，请完成商户认证哦!
+      </a-typography-title>
+      <a-typography-text style="text-align: center; display: block">
+        请完成认证，否则店铺将无法继续使用
+      </a-typography-text>
+    </AModalPro>
   </a-layout-header>
 </template>
 
