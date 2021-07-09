@@ -1,4 +1,3 @@
-import { isUndefined } from 'lodash-es';
 import { defineComponent, ref, computed, onBeforeMount, onMounted } from 'vue';
 import {
   MenuUnfoldOutlined,
@@ -14,6 +13,7 @@ import ALayoutDefaultAction from '../layout-default-action/LayoutDefaultDction.v
 import { getShop } from '../../utils/cookie';
 import { errUploadImage } from '../layout-default-panel/error-image';
 import WLayoutDefaultCheckShop from '../layout-default-check-shop/LayoutDefaultCheckShop.vue';
+import authImage from './auth-banner.svg';
 
 export default defineComponent({
   components: {
@@ -29,8 +29,6 @@ export default defineComponent({
   },
   emits: ['on-collapsed'],
   setup(props, { emit }) {
-    const { register: registerModal, methods: modalMethods } = waterPro.useModal();
-
     const changeCollapsed = () => {
       emit('on-collapsed', props.collapsed);
     };
@@ -38,7 +36,7 @@ export default defineComponent({
     const myStores = useStore();
     const navTitle = computed(() => myStores.state.external.navTitle);
 
-    const shopInfo = ref({});
+    const shopInfo = ref<any>({});
     const handleProfile = async() => {
       shopInfo.value = await getShop();
     };
@@ -50,13 +48,32 @@ export default defineComponent({
       }
     };
 
+    const { register: registerModal, methods: modalMethods } = waterPro.useModal();
     const shopChange = () => {
       modalMethods.openModal();
     };
 
-    // onMounted(() => {
-    //   modalMethods.openModal();
-    // })
+    const authModalStatus = ref(true);
+    const { register: registerAuthModal, methods: modalAuthMethods } = waterPro.useModal();
+
+    const authModalOk = () => {
+      // TODO 认证链接
+    };
+
+    const authModalCancel = () => {
+      // 如果到期了就不让关，必须认证
+      if (shopInfo.value.isAudited) {
+        modalAuthMethods.openModal();
+      }
+    };
+
+    onMounted(() => {
+      // modalMethods.openModal();
+      // 如果没认证
+      if (!shopInfo.value.isAudited) {
+        modalAuthMethods.openModal();
+      }
+    });
 
     onBeforeMount(handleProfile);
 
@@ -69,6 +86,11 @@ export default defineComponent({
       shopName,
       searchChange,
       shopChange,
+      registerAuthModal,
+      authModalStatus,
+      authModalOk,
+      authModalCancel,
+      authImage,
     };
   }
 });

@@ -12,6 +12,11 @@ declare interface PromiseFn<T = any, R = T> {
   (...arg: T[]): Promise<R>;
 }
 
+declare module "*.svg" {
+  const content: any;
+  export default content;
+}
+
 declare interface IObj<T = any> {
   [key: string]: T;
   [key: number]: T;
