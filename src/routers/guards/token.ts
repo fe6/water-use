@@ -8,7 +8,7 @@ export function createTokenGuard(router: Router) {
   router.beforeEach((to) => {
     // NOTE token
     if (!getToken() && to.path !== '/login') {
-      goLoginPage();
+      goLoginPage(true);
       return false;
     }
 

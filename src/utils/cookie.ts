@@ -10,7 +10,7 @@ import {
 } from '../constant';
 import { getEnvConfig, isDevMode } from '../env';
 import { error } from '../log';
-import { logoutHandler } from './account';
+import { goLoginPage } from './account';
 
 const {
   VITE_ENV,
@@ -80,7 +80,7 @@ export const getShop = async() => {
     const shopInfo = VueCookies.get(`${VueCookies.get(EVENT_PHONE)}_${EVENT_SHOP_INFO}`);
     // 没有信息
     if (!shopInfo) {
-      await logoutHandler();
+      goLoginPage(true);
       return null;
     }
     return JSON.parse(shopInfo);
