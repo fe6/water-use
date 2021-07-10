@@ -36,8 +36,15 @@ export const setToken = (loginData: any) => {
   VueCookies.set(EVENT_TOKE, `${EVENT_TOKEN_PREFIX}${accessToken}`, myExpires.value, cookiePath, domain.value);
 };
 
-export const getToken = () => {
-  return VueCookies.get(EVENT_TOKE);
+export const getToken = async() => {
+  const token = VueCookies.get(EVENT_TOKE);
+
+  if (!token) {
+    await logoutHandler();
+    return null;
+  }
+
+  return token;
 };
 
 export const removeToken = () => {
