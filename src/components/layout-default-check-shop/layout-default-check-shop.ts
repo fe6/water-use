@@ -26,7 +26,6 @@ export default defineComponent({
       shopAllItems.value = shoplist.data;
       totalPage.value = shoplist.pagination.total;
       shopLoading.value = false;
-      console.log(shoplist, 'shoplist');
     };
 
     const pageChange = async(newPage: number) => {
@@ -38,15 +37,11 @@ export default defineComponent({
     const defaultShopChange = async(shopId: number) => {
       if (changeLoadingShopId.value < 0) {
         changeLoadingShopId.value = shopId;
-        console.log(getShop(), '222');
-        const changeResult = await getShopSwitch(shopId);
-        console.log(changeResult, 'changeResult');
+        await getShopSwitch(shopId);
         const checkShop = await getCheckShopFilter();
-        console.log(checkShop, 'checkShop');
         await setShop(checkShop);
-        console.log(getShop(), '111');
         changeLoadingShopId.value = -1;
-        // siteReload();
+        siteReload();
       }
     };
 

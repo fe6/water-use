@@ -10,9 +10,10 @@ import {
 } from '../constant';
 import { getEnvConfig, isDevMode } from '../env';
 import { error } from '../log';
+import { logoutHandler } from './account';
 
 const {
-  VITE_ENV
+  VITE_ENV,
 } = getEnvConfig();
 
 const cookiePath = '/';
@@ -74,9 +75,15 @@ export const getShopId = () => {
   return VueCookies.get(`${VueCookies.get(EVENT_PHONE)}_${EVENT_SHOP_ID}`);
 };
 
-export const getShop = () => {
+export const getShop = async() => {
   try {
-    return JSON.parse(VueCookies.get(`${VueCookies.get(EVENT_PHONE)}_${EVENT_SHOP_INFO}`));
+    const shopInfo = VueCookies.get(`${VueCookies.get(EVENT_PHONE)}_${EVENT_SHOP_INFO}`);
+    // 没有信息
+    if (!shopInfo) {
+      await logoutHandler();
+      return null;
+    }
+    return JSON.parse(shopInfo);
   }
   catch (err) {
     error(err);
