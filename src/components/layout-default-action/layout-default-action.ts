@@ -7,8 +7,8 @@ import { defineComponent, ref, onBeforeMount } from 'vue';
 
 import { getProfile } from '../../utils/cookie';
 import { logoutHandler } from '../../utils/account';
-import { siteHref } from '@@hooks/use-page';
-import { getEnvConfig } from '@@env';
+import { siteHref } from '../../hooks/use-page';
+import { getEnvConfig } from '../../env';
 
 export default defineComponent({
   components: {
