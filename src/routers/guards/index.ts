@@ -2,7 +2,7 @@
 
 import { Router } from 'vue-router';
 
-// import { createProgressGuard } from './progress';
+import { createTokenGuard } from './token';
 import { createPageLoadingGuard } from './page-loading';
 // import { createTitleGuard } from './title';
 // import { createMessageGuard } from './message';
@@ -12,6 +12,7 @@ import { createPageLoadingGuard } from './page-loading';
 // import { createNavGuard } from './nav';
 
 export function createGuard(router: Router) {
+  createTokenGuard(router);
   createPageLoadingGuard(router);
   // createNavGuard(router);
   // createHttpGuard(router);
