@@ -27,9 +27,6 @@ export default defineComponent({
     });
     return {
       selectedKeys,
-      handleClick: () => {
-
-      },
     };
   }
 });

@@ -50,7 +50,7 @@ export const getAvtiveKey = (navs: MenuModal[], fullPath: string): NavActiveModa
     testPathNavs.push(eItem);
     // NOTE 匹配 三级
     if (subMenus && subMenus.length) {
-      const activeNavItem = subMenus.find((sItem: MenuModal) => sItem.path.includes(fullPath));
+      const activeNavItem = subMenus.find((sItem: MenuModal) => fullPath.includes(sItem.path));
 
       if (activeNavItem) {
         activeNavCode = activeNavItem.permissionCode;
@@ -58,7 +58,7 @@ export const getAvtiveKey = (navs: MenuModal[], fullPath: string): NavActiveModa
       }
     }
     else {
-      const activeNav = eItem.path.includes(fullPath);
+      const activeNav = fullPath.includes(eItem.path);
       if (activeNav) {
         activeNavCode = eItem.permissionCode;
         openNavCode = eItem.permissionCode;
