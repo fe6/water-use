@@ -2,9 +2,10 @@ import { defineComponent, watch, ref, onBeforeMount } from 'vue';
 
 import { errUploadImage } from '../layout-default-panel/error-image';
 import { getShopList, getShopSwitch, getCheckShopFilter } from '../../apis/shop';
-import { setShop, getShop } from '../../utils/cookie';
+import { setShop } from '../../utils/cookie';
 import { propTypes } from '../../utils/prop-types';
 import { siteReload } from '../../hooks/use-page';
+import { error } from '../../log';
 
 export default defineComponent({
   props: {
@@ -17,15 +18,23 @@ export default defineComponent({
     const shopLoading = ref(false);
     const defaultPageSize = ref(4);
     const getShopItems = async() => {
-      shopLoading.value = true;
-      const shoplist = await getShopList({
-        _page: currentPage.value,
-        _limit: defaultPageSize.value,
-        shopName: props.shopName,
-      });
-      shopAllItems.value = shoplist.data;
-      totalPage.value = shoplist.pagination.total;
-      shopLoading.value = false;
+      try {
+        if (!shopLoading.value) {
+          shopLoading.value = true;
+          const shoplist = await getShopList({
+            _page: currentPage.value,
+            _limit: defaultPageSize.value,
+            shopName: props.shopName,
+          });
+          shopAllItems.value = shoplist.data;
+          totalPage.value = shoplist.pagination.total;
+          shopLoading.value = false;
+        }
+      }
+      catch (err) {
+        shopLoading.value = false;
+        error(err);
+      }
     };
 
     const pageChange = async(newPage: number) => {

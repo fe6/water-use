@@ -29,7 +29,6 @@
               id="w-layout-inner-menu"
               v-model:selectedKeys="selectedKeys"
               mode="inline"
-              @click="handleClick"
             >
               <a-menu-item
                 v-for="mItem in menus"
