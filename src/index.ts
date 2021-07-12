@@ -86,6 +86,7 @@ export { error } from './log';
 export * from './utils/props';
 export * from './utils/cookie';
 export * from './utils/account';
+export * from './utils/prop-types';
 
 // constant
 export * from './constant';
