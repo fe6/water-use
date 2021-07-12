@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, onBeforeMount, onMounted } from 'vue';
+import { defineComponent, ref, computed, onMounted } from 'vue';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -67,15 +67,14 @@ export default defineComponent({
       }
     };
 
-    onMounted(() => {
+    onMounted(async() => {
       // modalMethods.openModal();
+      await handleProfile();
       // 如果没认证
       if (!shopInfo.value.isAudited) {
         modalAuthMethods.openModal();
       }
     });
-
-    onBeforeMount(handleProfile);
 
     return {
       navTitle,
