@@ -51,7 +51,7 @@ const actions = {
 // mutations
 const mutations = {
   setAllExternals(state: ExternalStateModal, { externalResult }: any) {
-    state.originMenus = externalResult.menus.slice();
+    state.originMenus = externalResult.slice();
     state.menus = getDarkMenus(state.originMenus);
     const { title, currentNavs } = getLightMenus(state.originMenus);
     state.navs = currentNavs;

@@ -4,21 +4,22 @@ import defHttp from './index';
 import type {
   InfoModal,
 } from '../api-mods/external';
-import { isDevMode } from '../env';
+import { getEnvConfig } from '../env';
 import localExternal from '../mock/external';
 
 enum Api {
-  menus = '/api/external/menus',
+  menus = 'business/rbac/right/menus',
 }
 
 // 获取权限信息接口
-// php: XXX
+// php: 陈建
 export function getSomeInfo() {
+  const ENV = getEnvConfig();
   const localData = () => new Promise(resolve => resolve(localExternal));
-  return isDevMode()
-    ? localData()
-    : defHttp.request<InfoModal>({
+  return ENV.VITE_USE_AUTH
+    ? defHttp.request<InfoModal>({
       url: Api.menus,
       method: 'GET',
-    });
+    })
+    : localData();
 }

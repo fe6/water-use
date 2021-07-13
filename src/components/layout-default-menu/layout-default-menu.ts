@@ -3,16 +3,29 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons-vue';
-import { defineComponent, computed, ref, onBeforeMount, onMounted, watchEffect, watch } from 'vue';
+import {
+  defineComponent,
+  computed,
+  ref,
+  onBeforeMount,
+  // NOTE [本地模拟导航] 本地若想模拟打开这个，但数据格式会变，参照本项目的格式
+  // onMounted,
+  watchEffect,
+  watch
+} from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
 import {
-  MENU_TYPE_ENUM,
+  MENU_GROUP_ENUM,
 } from '../../api-mods/external';
 import { propTypes } from '../../utils/prop-types';
 import { getAvtiveKey } from '../../utils/menus';
-import { getEnvConfig, isDevMode } from '../../env';
+import {
+  getEnvConfig,
+  // NOTE [本地模拟导航] 本地若想模拟打开这个，但数据格式会变，参照本项目的格式
+  // isDevMode,
+} from '../../env';
 
 import AIcon from '../icon';
 import { hasOwn } from '@fe6/shared';
@@ -64,13 +77,14 @@ export default defineComponent({
       await myStores.dispatch('external/getAllExternals');
     });
 
-    onMounted(async() => {
-      if (isDevMode()) {
-        const pwd = (window as any).pwd;
-        const json = (await (await import(/* @vite-ignore */`${pwd}/src/mock/external`)).default) as any;
-        myStores.dispatch('external/setAllExternals', json);
-      }
-    });
+    // NOTE [本地模拟导航] 本地若想模拟打开这个，但数据格式会变，参照本项目的格式
+    // onMounted(async() => {
+    //   if (isDevMode()) {
+    //     const pwd = (window as any).pwd;
+    //     const json = (await (await import(/* @vite-ignore */`${pwd}/src/mock/external`)).default) as any;
+    //     myStores.dispatch('external/setAllExternals', json);
+    //   }
+    // });
 
     const collapseStatus = ref(false);
     watchEffect(() => {
@@ -93,7 +107,7 @@ export default defineComponent({
       activeNavKey,
       openNavKey,
 
-      MENU_TYPE_ENUM,
+      MENU_GROUP_ENUM,
 
       menus,
       navs,

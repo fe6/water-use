@@ -17,21 +17,25 @@
         class="w-layout-default-menu-inner"
       >
         <a-menu-item
-          v-for="menuItem in menus[MENU_TYPE_ENUM.BASE]"
+          v-for="menuItem in menus[MENU_GROUP_ENUM.BASE]"
           :key="menuItem.permissionCode"
           class="w-layout-default-menu-item"
         >
-          <a-icon :icon-id="menuItem.icon" size="14" color="#fff"></a-icon>
-          <span class="w-layout-default-menu-name">{{ menuItem.name }}</span>
+          <router-link :to="menuItem.path">
+            <a-icon :icon-id="menuItem.icon" size="14" color="#fff"></a-icon>
+            <span class="w-layout-default-menu-name">{{ menuItem.name }}</span>
+          </router-link>
         </a-menu-item>
         <a-menu-item
-          v-for="(menuItem, menuIdx) in menus[MENU_TYPE_ENUM.OTHER]"
+          v-for="(menuItem, menuIdx) in menus[MENU_GROUP_ENUM.OTHER]"
           :key="menuItem.permissionCode"
           class="w-layout-default-menu-item"
           :class="menuIdx === 0 ? 'w-layout-default-menu-other' : ''"
         >
-          <a-icon :icon-id="menuItem.icon" size="14" color="#fff"></a-icon>
-          <span class="w-layout-default-menu-name">{{ menuItem.name }}</span>
+          <router-link :to="menuItem.path">
+            <a-icon :icon-id="menuItem.icon" size="14" color="#fff"></a-icon>
+            <span class="w-layout-default-menu-name">{{ menuItem.name }}</span>
+          </router-link>
         </a-menu-item>
       </a-menu>
     </a-container-scroll>
