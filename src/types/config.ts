@@ -4,6 +4,7 @@ export interface EnvConfig {
   VITE_PORT: number;
   VITE_DROP_CONSOLE: boolean;
   VITE_USE_IMAGEMIN: boolean;
+  VITE_AUTU_NO_GO_NAV_FIRST?: boolean;
   VITE_USE_AUTH: boolean;
   VITE_USE_MOCK: boolean;
   VITE_MENU_ACTIVE: string;
