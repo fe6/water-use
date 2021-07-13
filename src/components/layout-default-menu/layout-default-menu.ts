@@ -56,15 +56,13 @@ export default defineComponent({
     const openNavKey = ref<string[]>([]);
     const navs = computed(() => myStores.state.external.navs);
     const navTitle = computed(() => myStores.state.external.navTitle);
-    const isFirstInit = ref(true);
 
     watch([() => myStores.state.external.navs, currentRoute], ([newNavs, newRoute]) => {
       const {
         activeNavCode,
         openNavCode,
       } = getAvtiveKey(newNavs, newRoute.fullPath);
-      if (isFirstInit.value && !VITE_AUTU_NO_GO_NAV_FIRST && newNavs.length > 0 && newNavs[0].subMenus.length > 0) {
-        isFirstInit.value = false;
+      if (newRoute.fullPath === '/' && !VITE_AUTU_NO_GO_NAV_FIRST && newNavs.length > 0 && newNavs[0].subMenus.length > 0) {
         go({
           path: newNavs[0].subMenus[0].path
         });
