@@ -26,6 +26,7 @@ import {
   // NOTE [本地模拟导航] 本地若想模拟打开这个，但数据格式会变，参照本项目的格式
   // isDevMode,
 } from '../../env';
+import { useGo } from '../../hooks/use-page';
 
 import AIcon from '../icon';
 import { hasOwn } from '@fe6/shared';
@@ -45,6 +46,7 @@ export default defineComponent({
     const { VITE_MENU_ACTIVE } = getEnvConfig();
     const { currentRoute } = useRouter();
     const myStores = useStore();
+    const go = useGo();
 
     const menus = computed(() => {
       return myStores.state.external.menus;
@@ -60,7 +62,11 @@ export default defineComponent({
         activeNavCode,
         openNavCode,
       } = getAvtiveKey(newNavs, newRoute.fullPath);
-
+      if (newNavs.length > 0 && newNavs[0].subMenus.length > 0) {
+        go({
+          path: newNavs[0].subMenus[0].path
+        });
+      }
       if (activeNavCode) {
         activeNavKey.value = [];
         activeNavKey.value.push(activeNavCode);
