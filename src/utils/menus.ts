@@ -3,7 +3,7 @@ import type {
 } from '../api-mods/external';
 
 import {
-  MENU_TYPE_ENUM,
+  MENU_GROUP_ENUM,
   AUTH_TYPE_ENUM,
 } from '../api-mods/external';
 import { getEnvConfig } from '../env';
@@ -12,14 +12,14 @@ const { VITE_MENU_ACTIVE, VITE_USE_AUTH } = getEnvConfig();
 
 export const getDarkMenus = (external: MenuModal[]) => {
   const originMenus = external
-    .filter(({ isAccessible, options }: MenuModal) => (!VITE_USE_AUTH || !!isAccessible) && options.deniedType === AUTH_TYPE_ENUM.HIDDEN)
-    .sort((prev: MenuModal, next: MenuModal) => prev.order - next.order);
+    .filter(({ isAccessible, options }: MenuModal) => !VITE_USE_AUTH || !!isAccessible || options.deniedType !== AUTH_TYPE_ENUM.HIDDEN)
+    .sort((prev: MenuModal, next: MenuModal) => next.order - prev.order);
 
-  const baseMenus = originMenus.filter((mItem: MenuModal) => mItem.type === MENU_TYPE_ENUM.BASE);
-  const otherMenus = originMenus.filter((mItem: MenuModal) => mItem.type === MENU_TYPE_ENUM.OTHER);
+  const baseMenus = originMenus.filter((mItem: MenuModal) => mItem.group === MENU_GROUP_ENUM.BASE);
+  const otherMenus = originMenus.filter((mItem: MenuModal) => mItem.group === MENU_GROUP_ENUM.OTHER);
   return {
-    [MENU_TYPE_ENUM.BASE]: baseMenus,
-    [MENU_TYPE_ENUM.OTHER]: otherMenus,
+    [MENU_GROUP_ENUM.BASE]: baseMenus,
+    [MENU_GROUP_ENUM.OTHER]: otherMenus,
   };
 };
 

@@ -40,7 +40,7 @@ export interface OptionsModal {
   version: '3.0'
 }
 
-export enum MENU_TYPE_ENUM {
+export enum MENU_GROUP_ENUM {
   BASE = 'base',
   OTHER = 'other',
 }
@@ -63,7 +63,7 @@ export interface MenuModal {
   // 子级菜单
   subMenus?: MenuModal[]
   // 菜单类型 用于 黑色 部分的样式区分
-  type: MENU_TYPE_ENUM.BASE | MENU_TYPE_ENUM.OTHER
+  group: MENU_GROUP_ENUM.BASE | MENU_GROUP_ENUM.OTHER
 }
 
 // 接口最外层的类型
@@ -75,6 +75,6 @@ export interface InfoModal {
 }
 
 export interface MenusPageModal {
-  [MENU_TYPE_ENUM.BASE]: MenuModal[]
-  [MENU_TYPE_ENUM.OTHER]: MenuModal[]
+  [MENU_GROUP_ENUM.BASE]: MenuModal[]
+  [MENU_GROUP_ENUM.OTHER]: MenuModal[]
 }
