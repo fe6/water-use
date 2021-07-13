@@ -43,7 +43,7 @@ export default defineComponent({
   },
   emits: ['on-collapsed'],
   setup(props, { emit }) {
-    const { VITE_MENU_ACTIVE } = getEnvConfig();
+    const { VITE_AUTU_NO_GO_NAV_FIRST, VITE_MENU_ACTIVE } = getEnvConfig();
     const { currentRoute } = useRouter();
     const myStores = useStore();
     const go = useGo();
@@ -62,7 +62,7 @@ export default defineComponent({
         activeNavCode,
         openNavCode,
       } = getAvtiveKey(newNavs, newRoute.fullPath);
-      if (newNavs.length > 0 && newNavs[0].subMenus.length > 0) {
+      if (!VITE_AUTU_NO_GO_NAV_FIRST && newNavs.length > 0 && newNavs[0].subMenus.length > 0) {
         go({
           path: newNavs[0].subMenus[0].path
         });
