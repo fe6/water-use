@@ -30,6 +30,7 @@
             v-if="!shopInfo.isAudited"
             class="w-layout-default-panel-btn"
             type="danger"
+            @click="goAuth"
           >
             店铺认证
           </a-button>
