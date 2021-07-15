@@ -85,8 +85,8 @@ export interface LightMenusModal {
   currentNavs: MenuModal[]
 }
 
-export const getLightMenus = (external: MenuModal[]): LightMenusModal => {
-  const currentMenus = external.find((eItem: MenuModal) => eItem.permissionCode === VITE_MENU_ACTIVE);
+export const getLightMenus = (external: MenuModal[], menuActive?: string): LightMenusModal => {
+  const currentMenus = external.find((eItem: MenuModal) => menuActive ? (eItem.permissionCode === menuActive) : (eItem.permissionCode === VITE_MENU_ACTIVE));
   const currentNavs = currentMenus?.subMenus || [];
   return {
     title: currentMenus?.name || '',

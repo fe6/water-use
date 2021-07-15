@@ -35,10 +35,10 @@ const getters = {
 
 // actions
 const actions = {
-  getAllExternals: async({ commit, state }: any) => {
+  getAllExternals: async({ commit, state }: any, menuActive?: string) => {
     if (!state.originMenus.length) {
       const externalResult = await getSomeInfo();
-      commit('setAllExternals', { externalResult });
+      commit('setAllExternals', { externalResult, menuActive });
     }
   },
   setAllExternals: async({ commit }: any, externalResult: MenuModal[]) => {
@@ -50,10 +50,10 @@ const actions = {
 
 // mutations
 const mutations = {
-  setAllExternals(state: ExternalStateModal, { externalResult }: any) {
+  setAllExternals(state: ExternalStateModal, { externalResult, menuActive }: any) {
     state.originMenus = externalResult.slice();
     state.menus = getDarkMenus(state.originMenus);
-    const { title, currentNavs } = getLightMenus(state.originMenus);
+    const { title, currentNavs } = getLightMenus(state.originMenus, menuActive);
     state.navs = currentNavs;
     state.navTitle = title;
   },
