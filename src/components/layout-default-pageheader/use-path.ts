@@ -45,5 +45,5 @@ export const getHeaderStatusGoBack = (currentRoute: RouteLocationNormalizedLoade
   ) {
     return (currentRoute.meta as any).headerStatusGoBack;
   }
-  return false;
+  return true;
 };

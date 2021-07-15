@@ -28,6 +28,10 @@
     &-inner {
       font-size: 20px;
       padding-left: 16px;
+
+      &-only {
+        padding-left: 0;
+      }
     }
 
     & .anticon-arrow-left {
