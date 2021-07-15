@@ -37,3 +37,13 @@ export const getHeaderGoBack = (currentRoute: RouteLocationNormalizedLoaded) => 
   }
   return () => {};
 };
+
+export const getHeaderStatusGoBack = (currentRoute: RouteLocationNormalizedLoaded) => {
+  if (
+    hasOwn(currentRoute, 'meta')
+    && hasOwn(currentRoute.meta, 'headerStatusGoBack')
+  ) {
+    return (currentRoute.meta as any).headerStatusGoBack;
+  }
+  return false;
+};

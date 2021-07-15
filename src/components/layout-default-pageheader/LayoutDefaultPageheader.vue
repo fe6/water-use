@@ -16,7 +16,10 @@
         ['w-layout-default-pageheader-title-only']: !breadcrumbRoutes.length
       }"
     >
-      <ArrowLeftOutlined />
+      <ArrowLeftOutlined
+        v-show="headerStatusGoBack"
+        @click="headerGoBack"
+      />
       <span class="w-layout-default-pageheader-title-inner">{{ title }}</span>
     </h2>
   </div>
