@@ -12,7 +12,7 @@
       <div class="w-layout-default-panel-content">
         <div class="w-layout-default-panel-title layout-default-panel">
           <span>{{ shopInfo.shopName }}</span>
-          <EditOutlined />
+          <!-- <EditOutlined /> -->
         </div>
         <div class="w-layout-default-panel-tag">
           <a-layout-default-auth
@@ -23,11 +23,12 @@
         </div>
         <div>
           <a-button><ShareAltOutlined />分享</a-button>
-          <a-button class="w-layout-default-panel-btn">
+          <!-- C 端首页(二期)<a-button class="w-layout-default-panel-btn">
             <EditOutlined />进店
-          </a-button>
+          </a-button> -->
           <a-button
             v-if="!shopInfo.isAudited"
+            class="w-layout-default-panel-btn"
             type="danger"
           >
             店铺认证
@@ -38,7 +39,7 @@
     <a-row class="w-layout-default-panel-footer">
       <a-col :span="11">
         <div class="w-layout-default-panel-action" @click="changeShop">
-          <a-icon icon-id="29515" size="14"></a-icon>
+          <!-- <a-icon icon-id="29515" size="14"></a-icon> -->
           <span class="w-layout-default-panel-label">切换店铺</span>
         </div>
       </a-col>
@@ -46,8 +47,8 @@
         <a-divider type="vertical" />
       </a-col>
       <a-col :span="11">
-        <div class="w-layout-default-panel-action">
-          <EditOutlined />
+        <div class="w-layout-default-panel-action" @click="goCreateStore">
+          <!-- <EditOutlined /> -->
           <span class="w-layout-default-panel-label">创建新店</span>
         </div>
       </a-col>
