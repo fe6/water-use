@@ -89,7 +89,7 @@ export const getLightMenus = (external: MenuModal[], menuActive?: string): Light
   const currentMenus = external.find((eItem: MenuModal) => menuActive ? (eItem.permissionCode === menuActive) : (eItem.permissionCode === VITE_MENU_ACTIVE));
   const currentNavs = currentMenus?.subMenus || [];
   return {
-    title: currentMenus?.name || '',
+    title: currentNavs.length ? (currentMenus?.name || '') : '',
     currentNavs,
   };
 };

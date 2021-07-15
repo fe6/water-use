@@ -11,8 +11,11 @@ export default defineComponent({
     WLayoutFooter,
   },
   props: {
+    // 是否有头部
     pageHeader: propTypes.looseBool,
+    // 是否固定宽度展示
     fixWidth: propTypes.bool.def(true),
+    // 左边导航配置
     menus: propTypes.object,
   },
   setup(props) {
