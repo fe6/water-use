@@ -6,6 +6,7 @@ import {
 import { useStore } from 'vuex';
 import * as waterPro from '@fe6/water-pro';
 
+import { getEnvConfig } from '../../env';
 import { propTypes } from '../../utils/prop-types';
 import ALayoutDefaultAuth from '../layout-default-auth/LayoutDefaultAuth.vue';
 import ALayoutDefaultPanel from '../layout-default-panel/LayoutDefaultPanel.vue';
@@ -14,6 +15,11 @@ import { getShop } from '../../utils/cookie';
 import { errUploadImage } from '../layout-default-panel/error-image';
 import WLayoutDefaultCheckShop from '../layout-default-check-shop/LayoutDefaultCheckShop.vue';
 import authImage from './auth-banner.svg';
+import { siteHref } from '@@hooks/use-page';
+
+const {
+  VITE_SHOP,
+} = getEnvConfig();
 
 export default defineComponent({
   components: {
@@ -58,6 +64,7 @@ export default defineComponent({
 
     const authModalOk = () => {
       // TODO 认证链接
+      siteHref(`${VITE_SHOP}manage/qualification`);
     };
 
     const authModalCancel = () => {

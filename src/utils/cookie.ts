@@ -8,17 +8,13 @@ import {
   EVENT_SHOP_ID,
   EVENT_SHOP_INFO,
 } from '../constant';
-import { getEnvConfig, isDevMode } from '../env';
+import { isDevMode } from '../env';
 import { error } from '../log';
 import { goLoginPage } from './account';
 
-const {
-  VITE_ENV,
-} = getEnvConfig();
-
-const cookiePath = '/';
-const domain = ref('');
-const myExpires = ref('');
+export const cookiePath = '/';
+export const domain = ref('');
+export const myExpires = ref('');
 
 export const setToken = (loginData: any) => {
   const { expiresIn, accessToken } = loginData;
@@ -30,7 +26,7 @@ export const setToken = (loginData: any) => {
   myExpires.value = expiresIn + timestamp;
 
   if (!isDevMode()) {
-    domain.value = `home${VITE_ENV === 'prod' ? '' : `.${VITE_ENV}`}.mosh.cn`;
+    domain.value = window.location.host;
   }
 
   VueCookies.set(EVENT_TOKE, `${EVENT_TOKEN_PREFIX}${accessToken}`, myExpires.value, cookiePath, domain.value);

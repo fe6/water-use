@@ -4,11 +4,17 @@ import {
   ShareAltOutlined,
 } from '@ant-design/icons-vue';
 
+import { getEnvConfig } from '../../env';
 import { propTypes } from '../../utils/prop-types';
 import ALayoutDefaultAuth from '../layout-default-auth/LayoutDefaultAuth.vue';
 import AIcon from '../icon';
 
 import { errUploadImage } from './error-image';
+import { siteHref } from '../../hooks/use-page';
+
+const {
+  VITE_SHOP,
+} = getEnvConfig();
 
 export default defineComponent({
   components: {
@@ -25,9 +31,13 @@ export default defineComponent({
     const changeShop = () => {
       emit('on-change-shop');
     };
+    const goCreateStore = () => {
+      siteHref(`${VITE_SHOP}store/type`);
+    };
     return {
       changeShop,
       errUploadImage,
+      goCreateStore,
     };
   }
 });
