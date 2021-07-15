@@ -34,10 +34,15 @@ export default defineComponent({
     const goCreateStore = () => {
       siteHref(`${VITE_SHOP}store/type`);
     };
+    const goAuth = () => {
+      siteHref(`${VITE_SHOP}manage/qualification`);
+    };
+
     return {
       changeShop,
       errUploadImage,
       goCreateStore,
+      goAuth,
     };
   }
 });

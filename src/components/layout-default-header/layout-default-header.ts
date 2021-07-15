@@ -82,7 +82,7 @@ export default defineComponent({
       // modalMethods.openModal();
       await handleProfile();
       // 如果没认证
-      if (!shopInfo.value.isAudited) {
+      if (!shopInfo.value.isAudited && !window.location.href.includes('shop/manage/qualification')) {
         modalAuthMethods.openModal();
       }
     });
