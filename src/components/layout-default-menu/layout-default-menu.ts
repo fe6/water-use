@@ -62,7 +62,8 @@ export default defineComponent({
         activeNavCode,
         openNavCode,
       } = getAvtiveKey(newNavs, newRoute.fullPath);
-      if (newRoute.fullPath === '/' && !VITE_AUTU_NO_GO_NAV_FIRST && newNavs.length > 0 && newNavs[0].subMenus.length > 0) {
+      // 默认跳到第一个白色导航
+      if ((newRoute.fullPath === '/' || newRoute.meta.autoRedirect) && !VITE_AUTU_NO_GO_NAV_FIRST && newNavs.length > 0 && newNavs[0].subMenus.length > 0) {
         go({
           path: newNavs[0].subMenus[0].path
         });
@@ -80,7 +81,7 @@ export default defineComponent({
 
     // NOTE 获取权限接口数据
     onBeforeMount(async() => {
-      await myStores.dispatch('external/getAllExternals');
+      await myStores.dispatch('external/getAllExternals', currentRoute.value.meta.menuActive);
     });
 
     // NOTE [本地模拟导航] 本地若想模拟打开这个，但数据格式会变，参照本项目的格式
