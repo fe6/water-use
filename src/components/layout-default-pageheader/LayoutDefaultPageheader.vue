@@ -20,7 +20,12 @@
         v-show="headerStatusGoBack"
         @click="headerGoBack"
       />
-      <span class="w-layout-default-pageheader-title-inner">{{ title }}</span>
+      <span
+        class="w-layout-default-pageheader-title-inner"
+        :class="{
+          ['w-layout-default-pageheader-title-inner-only']: !headerStatusGoBack
+        }"
+      >{{ title }}</span>
     </h2>
   </div>
 </template>

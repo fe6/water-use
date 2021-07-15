@@ -23,7 +23,7 @@ export default defineComponent({
       title.value = getTitle(newRoute);
       breadcrumbRoutes.value = getBreadcrumbRoutes(newRoute);
       headerGoBack.value = getHeaderGoBack(newRoute);
-      headerStatusGoBack.value = ref(getHeaderStatusGoBack(newRoute));
+      headerStatusGoBack.value = getHeaderStatusGoBack(newRoute);
     });
 
     return {
