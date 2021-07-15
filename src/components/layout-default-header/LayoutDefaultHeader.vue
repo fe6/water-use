@@ -54,6 +54,7 @@
             <a-button
               size="small"
               type="primary"
+              @click="goCreateStore"
             >
               创建新店铺
             </a-button>

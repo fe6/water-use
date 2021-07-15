@@ -74,6 +74,10 @@ export default defineComponent({
       }
     };
 
+    const goCreateStore = () => {
+      siteHref(`${VITE_SHOP}store/type`);
+    };
+
     onMounted(async() => {
       // modalMethods.openModal();
       await handleProfile();
@@ -97,6 +101,7 @@ export default defineComponent({
       authModalOk,
       authModalCancel,
       authImage,
+      goCreateStore,
     };
   }
 });
