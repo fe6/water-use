@@ -22,7 +22,7 @@ export const getShopList = (params: any) => {
 export const getShopSwitch = (id: number | string) => {
   return defHttp.request({
     url: `business/shop/base/items/${id}/switch`,
-    method: 'PUT',
+    method: 'GET',
   });
 };
 
