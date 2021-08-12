@@ -23,6 +23,8 @@ export interface RequestOptions {
   mock?: boolean
   // 是否 过滤 code message
   filter?: boolean
+  // 是否取消
+  cancel?: boolean
 }
 
 export interface CreateAxiosOptions extends AxiosRequestConfig {
